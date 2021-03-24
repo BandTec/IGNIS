@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico</title>
+    <style>
+        body {
+            height: 500px;
+            width: 500px;
+            margin:0;
+        }
+
+        .main {
+            height: 100%;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #45D5AA;
+            position: absolute;
+            float: left;
+            height: 100%;
+            border: 1px;
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img#perfil_usuario {
+            border-radius: 100%;
+            height: 100px;
+            margin-top: 50px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 16px;
+        }
+
+        .grafico:hover{
+            background-color: green;
+            border-left:5px;
+        }
+        .nav-item {
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 30px;
+            margin-bottom: 80px;
+            text-align: center;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <nav>
+            <img id="perfil_usuario" src="img/perfil.jpg">
+            <div class="nav-item">Nome do Usuário</div>
+            <div class="nav-item">Gráficos</div>
+            <div class="nav-item">Mapa</div>
+            <div class="nav-item" id="grafico">Gráficos Anuais</div>
+            <div class="nav-item">Fale Conosco</div>
+        </nav>
+    </div>
+</body>
+
+</html>
