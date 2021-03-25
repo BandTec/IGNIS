@@ -29,6 +29,15 @@ header, .second-header {
     padding: 30px 30px;
 }
 
+.div_login {
+    margin-right: 20px;
+    color: rgba(255, 255, 255, 0.425);
+}
+
+.div_login b {
+    margin-right: 10px;
+}
+
 .second-header {
     color: #fff;
     padding: 0px;
