@@ -25,7 +25,7 @@ body {
 }
 
 .username {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .nav li {
@@ -33,7 +33,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100px;
+    height: 90px;
+    
 }
 
 .nav a {
@@ -51,39 +52,45 @@ body {
 
 .main {
     float: right;
-    width: 65%;
+    width: 70%;
 }
 
-.container {
-    display: inline-block;
-    flex-direction: row;
-    margin: 40px 30px 20px 10px;
-    background-color: #6BD5B5;
-    border-radius: 5px;
-    overflow: auto;
-    width: 400px;
-    
-}
-
-
-.container:hover {
-    box-sizing: border-box;
-    background-color: #7DFFD8;
-    border-left: 10px solid #066F4F;
-}
-
-
-.container h2 {
+.main button {
+    background-color: #11AB7C;
+    border: 0;
+    padding: 10px 25px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    margin-left: 10px;
-    margin: 20px 10px 20px 10px;
+    margin: 50px 0 80px 80%;
+    color: white;
 }
 
-.data {
-    margin: 0 0 10px 10px;
-    float: left;
+.table {
+    width: 98%;
+    margin: auto;
+    border-collapse: collapse;
 }
 
-.container img { 
-    margin: 0 0 0 80px;
+.table tr {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+.table td {
+    padding: 20px 15px;
+    text-align: center;
+}
+
+.table th {
+    padding: 20px 0;
+    background-color: #8FE0C8;
+    text-align: center;
+    color: white;
 }

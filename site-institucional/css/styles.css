@@ -65,6 +65,13 @@ body {
     
 }
 
+
+.container:hover {
+    box-sizing: border-box;
+    background-color: #7DFFD8;
+    border-left: 10px solid #066F4F;
+}
+
 .container h2 {
     font-size: 20px;
     margin-left: 10px;
