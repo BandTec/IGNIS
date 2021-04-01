@@ -31,7 +31,9 @@ header, .second-header {
 
 .div_login {
     margin-right: 20px;
-    color: rgba(255, 255, 255, 0.425);
+    color: rgba(255, 255, 255, 0.726);
+    font-size: 20px;
+    filter: drop-shadow(0px 3px 4px rgba(255, 255, 255, 0.479));
 }
 
 .div_login b {
