@@ -31,13 +31,13 @@ header, .second-header {
 
 .login {
     margin-right: 20px;
-    color: rgba(255, 255, 255, 0.726);
-    font-size: 20px;
-    filter: drop-shadow(0px 3px 4px rgba(255, 255, 255, 0.479));
 }
 
-.login b {
+.login a {
     margin-right: 10px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.726);
+    font-size: 20px;
 }
 
 .second-header {
