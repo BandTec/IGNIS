@@ -52,39 +52,36 @@ body {
 
 .main {
     float: right;
-    width: 65%;
+    width: 70%;
+}
+
+.main button {
+    background-color: #11AB7C;
+    border: 0;
+    padding: 10px 25px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: white;
+    margin: 0 0 0 80%;
 }
 
 .container {
-    display: inline-block;
-    flex-direction: row;
-    margin: 40px 30px 20px 10px;
-    background-color: #6BD5B5;
+    width: 90%;
+    margin: 40px auto;
+}
+
+.container label {
+    display: block;
+    margin: 10px 0;
+}
+
+.form {
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 5px;
-    overflow: auto;
-    width: 400px;
-    
+    width: 350px;
+    height: 45px;
+    margin: 15px 0;
+    padding-left: 10px;
+    font-family: 'Montserrat',sans-serif;;
 }
 
-
-.container:hover {
-    box-sizing: border-box;
-    background-color: #7DFFD8;
-    border-left: 10px solid #066F4F;
-}
-
-
-.container h2 {
-    font-size: 20px;
-    margin-left: 10px;
-    margin: 20px 10px 20px 10px;
-}
-
-.data {
-    margin: 0 0 10px 10px;
-    float: left;
-}
-
-.container img { 
-    margin: 0 0 0 80px;
-}
