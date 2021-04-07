@@ -189,10 +189,20 @@
 			document.getElementById('label_humidity').textContent = obj.data[obj.data.length-1];
 
 			if(obj.data[obj.data.length-1] <= 20) {
+				humidity.data.datasets[0].backgroundColor = '#FF3445'
+				humidity.data.datasets[0].borderColor = '#FFF'
+				chartHumidity = new Chart(context2, humidity);
 				img_alert.src = "img/perigo.svg"
 			} else if (obj.data[obj.data.length-1] <= 35) {
+				humidity.data.datasets[0].backgroundColor = '#F0C419'
+				humidity.data.datasets[0].borderColor = '#FFF'
+				chartHumidity = new Chart(context2, humidity);
 				img_alert.src = "img/atencao.svg"
+				
 			} else {
+				humidity.data.datasets[0].backgroundColor = '#00DF76'
+				humidity.data.datasets[0].borderColor = '#FFF'
+				chartHumidity = new Chart(context2, humidity);
 				img_alert.src = "img/estavel.svg"
 			}
 		} 
@@ -280,12 +290,24 @@
 			document.getElementById('label_temperature').textContent = obj.data[obj.data.length-1].toFixed(2);
 			
 			if(obj.data[obj.data.length-1] <= 28) {
+				temperature.data.datasets[0].backgroundColor = '#00DF76'
+				temperature.data.datasets[0].borderColor = '#FFF'
+				chartTemperature = new Chart(context5, temperature);
 				img_alert_temp.src = "img/estavel.svg"
 			} else if (obj.data[obj.data.length-1] <= 35) {
+				temperature.data.datasets[0].backgroundColor = '#F0C419'
+				temperature.data.datasets[0].borderColor = '#FFF'
+				chartTemperature = new Chart(context5, temperature);
 				img_alert_temp.src = "img/atencao.svg"
 			} else if (obj.data[obj.data.length-1] <= 46) {
+				temperature.data.datasets[0].backgroundColor = '#FF3445'
+				temperature.data.datasets[0].borderColor = '#FFF'
+				chartTemperature = new Chart(context5, temperature);
 				img_alert_temp.src = "img/perigo.svg"
 			} else {
+				temperature.data.datasets[0].backgroundColor = '#DD1265'
+				temperature.data.datasets[0].borderColor = '#FFF'
+				chartTemperature = new Chart(context5, temperature);
 				img_alert_temp.src = "img/perigo.svg"
 			}
 		} 
