@@ -28,10 +28,28 @@
     </div>
     <div class="main">
       <div class="container">
-        <h2>Dados para acesso ao sistema:</h2>
-        CPF:
-        <br />
-        <input class="form" type="text" placeholder="Informe seu CPF" />
+        <div class="form">
+          Nome:
+          <br />
+          <input id="in_nome" type="text" placeholder="Informe o Nome do Funcionário" autofocus/>
+        </div>
+        <div class="form">
+          CPF:
+          <br />
+          <input id="in_cpf" type="text" placeholder="Informe o CPF do Funcionário" />
+          <div id="div_cpf"></div>
+        </div>
+        <div class="form">
+          Email:
+          <br />
+          <input id="in_email"  type="text" placeholder="Informe o email do Funcionário" />
+          <div id="div_email"></div>
+        </div>
+        <div class="form">
+          Cargo:
+          <br />
+          <input id="in_cargo" type="text" placeholder="Informe o cargo do Funcionário" />
+        </div>
       </div>
       <div class="container">
         <h2>Permissões:</h2>
@@ -69,7 +87,27 @@
         >
       </div>
 
-      <a href="cadastro.html"><button>Confirmar</button></a>
+      <button onclick="cadastrar()">Confirmar</button>
     </div>
   </body>
 </html>
+<script>
+  function cadastrar() {
+    var nome = in_nome.value;
+    var email = in_email.value;
+    var cpf = in_cpf.value;
+    var cargo = in_cpf.value;
+
+    if  (nome == '' || email == '' || cpf == '' || cargo == '') {
+      alert('todos os dados devem ser preenchidos')
+    } else if (cpf.length < 11 || cpf.length > 11) {
+      // como deixar com a borda em vermelho?
+      div_cpf.innerHTML = 'Insira um CPF válido'
+    } else if (email.indexOf('@') < 1 || (email.indexOf ('.') < email.indexOf('@'))) {
+      div_email.innerHTML = 'Insira um email válido'
+    } else {
+      window.location.href = "cadastro.html"
+    }
+
+  }
+</script>
