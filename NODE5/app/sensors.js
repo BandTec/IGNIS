@@ -1,4 +1,4 @@
-function dht11(options){
+function dht11(options) {
 
     minHumidity = options.minHum;
     maxHumidity = options.maxHum;
