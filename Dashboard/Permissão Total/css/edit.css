@@ -68,7 +68,7 @@ body {
 .container {
     width: 90%;
     overflow: auto;
-    margin: 30px auto;
+    margin: 10px auto;
 }
 
 .container label {
@@ -101,6 +101,10 @@ body {
 
 .form input:focus {
     border: 2px solid #45D5AA;
+}
+
+.error-input {
+    border: 1px solid rgba(255, 18, 18, 0.829);
 }
 
 
