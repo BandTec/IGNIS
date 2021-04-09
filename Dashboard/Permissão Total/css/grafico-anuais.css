@@ -25,7 +25,7 @@ body {
 }
 
 .username {
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .nav li {
@@ -54,6 +54,11 @@ body {
     width: 65%;
 }
 
+.main a {
+    text-decoration: none;
+    color: #000000;
+}
+
 .container {
     display: inline-block;
     flex-direction: row;
@@ -65,11 +70,18 @@ body {
     
 }
 
+
+.container:hover {
+    box-sizing: border-box;
+    background-color: #7DFFD8;
+    border-left: 10px solid #066F4F;
+}
+
+
 .container h2 {
     font-size: 20px;
     margin-left: 10px;
     margin: 20px 10px 20px 10px;
-    text-decoration: none;
 }
 
 .data {
@@ -78,5 +90,5 @@ body {
 }
 
 .container img { 
-    margin: 0 0 0 80px;
+    margin: 0 0 0 30px;
 }

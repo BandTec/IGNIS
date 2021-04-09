@@ -67,7 +67,8 @@ body {
 
 .container {
     width: 90%;
-    margin: 40px auto;
+    overflow: auto;
+    margin: 10px auto;
 }
 
 .container label {
@@ -76,12 +77,34 @@ body {
 }
 
 .form {
+    height: 120px;
+    width: 40%;
+    float: left;
+    margin-left: 3%;
+}
+
+.form div {
+    font-size: 13px;
+    color: red;
+}
+
+.form input {
+    outline: none;
     border: 1px solid rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     width: 350px;
     height: 45px;
-    margin: 15px 0;
+    margin: 10px 0;
     padding-left: 10px;
-    font-family: 'Montserrat',sans-serif;;
+    font-family: 'Montserrat',sans-serif;
 }
+
+.form input:focus {
+    border: 2px solid #45D5AA;
+}
+
+.error-input {
+    border: 1px solid rgba(255, 18, 18, 0.829);
+}
+
 

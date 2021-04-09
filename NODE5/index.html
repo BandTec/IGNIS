@@ -20,9 +20,9 @@
 <body>
 	<div class="header">
         <div class="container">
-            <h1 class="titulo"> <span class="destaque">Nome Usuário</span> Prq. Nacional de Monte Pascoal</h1>
+            <h2 class="titulo"> <span class="destaque">Nome Usuário</span> Prq. Nacional de Monte Pascoal</h2>
             <ul class="navbar">
-                <li><span class="destaque"><a href="../graficos-anuais.html">Gráfico Média</a></span></li>
+                <li><a href="../Dashboard/Permissão Total/grafico.html"><span class="destaque">Gráficos</span></a></li>
             </ul>
         </div>
     </div>
@@ -39,7 +39,7 @@
 					<div id="div_alert">
 						<img id="img_alert">
 					</div>
-					<section style="width:80%">
+					<section class="grafico">
 						<canvas id="chart-humidity"></canvas>
 					</section>
 					
@@ -48,19 +48,18 @@
     </div>
 
 		<table class="table">
-			<tr class="row">
+			<tr>
 			  <th>Perigo</th>
 			  <th>Atenção</th>
 			  <th>Estável</th>
 			</tr>
 			<tr>
-			  <td>20%</td>
-			  <td>21%</td>
-			  <td>36%</td>
+			  <td class="danger">20%</td>
+			  <td class="attention">21%</td>
+			  <td class="stable">36%</td>
 			</tr> 
 		</table>
 		
-	<div class="Gráfico">
         <div class="container">
             <div class="box-item">
 					<section>
@@ -72,13 +71,12 @@
 					<div id="div_alert_temp">
 						<img id="img_alert_temp">
 					</div>
-					<section style="width:80%">
+					<section class="grafico" >
 						<canvas id="chart-temperature"></canvas>
 					</section>
 					
             </div>
         </div>
-    </div>
 
 		<table class="table">
 			<tr class="row">
@@ -88,10 +86,10 @@
 			  <th>Crítico</th>
 			</tr>
 			<tr>
-			  <td>28°C</td>
-			  <td>29°C</td>
-			  <td>36°C</td>
-			  <td>47°C</td>
+			  <td class="stable">28°C</td>
+			  <td class="attention">29°C</td>
+			  <td class="danger">36°C</td>
+			  <td class="critical">47°C</td>
 			</tr> 
 		</table>
 
