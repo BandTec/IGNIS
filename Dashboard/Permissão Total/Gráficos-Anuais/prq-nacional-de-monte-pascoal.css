@@ -3,6 +3,7 @@ body {
     margin: 0;
 }
 
+/* topo da pagina */
 .header {
     background-color: #000000;
     color: white;
@@ -12,80 +13,66 @@ body {
     padding-bottom: 25px;
 }
 
+/* div para centralizar centralizar */
 .container {
     width: 80%;
     margin: auto;
 }
 
-.navbar {
+/* Botão para voltar pro graficos anuais */
+.navbar { 
     list-style: none;
     float: right;
 }
-
 .titulo {
     margin: 0;
     float: left;
     padding-top: 5px;
 }
-
 .header .navbar li {
     float: left;
     margin-left: 13px;
     text-transform: uppercase;
+}
+a{
+    text-decoration: inherit;
 }
 
 .destaque {
     color: #066F4F;
 }
 
-.banner {
-    text-align: center;
-    background-color: #7DFFD8;
-    background-repeat: no-repeat; 
-    background-size: cover;
-    height: 700px;
-    overflow: auto;
-    
+/* Grafico chartJS */
+.meu-grafico {
+    width: 60%;
+    margin: auto;
 }
 
-.banner h1 {
-    margin: 0;
-    padding-top: 150px;
-}
-.banner h3 {
-    color: #000;
-}
-
+/* botão saber mais */
 .saiba-mais button{
     border : 0;
     background-color: #066F4F;
     color: white;
     text-transform: uppercase;
-    padding: 10px 30px;
-    margin-top: 30px;
+    padding: 1vh 3vh;
+    margin: auto;
     cursor: pointer;
     border-radius: 25px;
-
-}
-.box {
-    overflow: auto;
-    margin: 0px;
-    margin-top: -50px;
-}
-
-.box-item {
-    text-align: center;
-    margin-top: 50px;
+    display: flex;
 }
 .saiba-mais {
-    text-align: center;
     background-color: #000000;
     height: 100px;
-    overflow: auto;
+    width: 100%;
+    display: flex;
+    bottom: 10vh;
+    position: fixed;
 }
 
 .footer {
-    text-align: center;
     background-color: #7DFFD8;
-    height: 66px;
+    width: 100%;
+    height: 10vh;
+    bottom: 0;
+    position: fixed;
 }
