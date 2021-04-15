@@ -10,7 +10,7 @@ body {
     align-items: center;
     position: absolute;
     font-size: 25px;
-    width: 30%;
+    width: 25%;
     height: 100%;
     background-color: #45D5AA;
     position: fixed;
@@ -51,15 +51,15 @@ body {
 
 .main {
     float: right;
-    width: 65%;
+    width: 75%;
 }
 
 .container {
     margin:auto;
-    width: 80%;
+    width: 750%;
     top: 50%;
     padding: 10px;
-    transform: translateY(20%);
+    transform: translateY(10%);
     flex-direction: row;
     background-color: #F5F5F5;
     border-radius: 80px;
