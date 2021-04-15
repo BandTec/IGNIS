@@ -28,8 +28,8 @@
     <div class="main">
         <div class="container">
             <div class="fale_conosco"><br>
-                <select class="sel_opcao">
-                    <!-- <option value="" disabled selected>Escolha uma Opção</option> -->
+                <select id="sel_opcao">
+                    <option value="0" disabled selected>Selecione uma Categoria</option>
                     <option value="1">Marcar Reunião</option>
                     <option value="2">Assistência Técnica</option>
                     <option value="3">Suporte</option>
@@ -47,5 +47,18 @@
         </div>
     </div>
 </body>
-
 </html>
+<script>
+    function bt_chamado(){
+    var opcao = Number(sel_opcao.value)
+
+    if(opcao == 0){
+        alert ("Selecione um Assunto")
+    }else{
+        alert ("Chamado Enviado")
+        window.location.href = "fale-conosco.html";
+    }
+
+
+    }
+</script>

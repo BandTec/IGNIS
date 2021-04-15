@@ -1,4 +1,5 @@
 create database envsafe;
+
 use envsafe;
 
 create table Cliente (

@@ -18,23 +18,17 @@
         <img src="img/user.svg" alt="Foto Usuário">
         <ul class="nav">
             <li class="username">Nome de Usuário</li>
-            <a href="graphic.html">
-                <li class="option">Gráficos</li>
-            </a>
-            <a href="mapa.html">
-                <li class="option">Mapa</li>
-            </a>
-            <a href="graficos-anuais.html">
-                <li class="option">Gráficos Anuais</li>
-            </a>
+            <a href="graphic.html"><li class="option">Gráficos</li></a>
+            <a href="mapa.html"><li class="option">Mapa</li></a>
+            <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
             <li class="option"><b>Fale Conosco</b></li>
         </ul>
     </div>
     <div class="main">
         <div class="container">
             <div class="fale_conosco"><br>
-                <select class="sel_opcao">
-                    <!-- <option value="" disabled selected>Escolha uma Opção</option> -->
+                <select id="sel_opcao">
+                    <option value="0" disabled selected>Selecione uma Categoria</option>
                     <option value="1">Marcar Reunião</option>
                     <option value="2">Assistência Técnica</option>
                     <option value="3">Suporte</option>
@@ -52,5 +46,18 @@
         </div>
     </div>
 </body>
-
 </html>
+<script>
+    function bt_chamado(){
+    var opcao = Number(sel_opcao.value)
+
+    if(opcao == 0){
+        alert ("Selecione um Assunto")
+    }else{
+        alert ("Chamado Enviado")
+        window.location.href = "fale-conosco.html";
+    }
+
+
+    }
+</script>
