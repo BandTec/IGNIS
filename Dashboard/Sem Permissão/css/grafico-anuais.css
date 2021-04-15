@@ -10,7 +10,7 @@ body {
     align-items: center;
     position: absolute;
     font-size: 25px;
-    width: 30%;
+    width: 25%;
     height: 100%;
     background-color: #45D5AA;
     position: fixed;
@@ -36,7 +36,7 @@ body {
     height: 100px;
 }
 
-.nav a {
+a {
     text-decoration: none;
     color: #000000;
     
