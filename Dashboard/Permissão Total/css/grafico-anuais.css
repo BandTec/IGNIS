@@ -3,6 +3,14 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -51,9 +59,13 @@ body {
 
 .main {
     float: right;
-    width: 65%;
+    width: 74%;
 }
 
+.box-graficos {
+    width: 80%;
+    margin: auto;
+}
 .main a {
     text-decoration: none;
     color: #000000;

@@ -3,6 +3,15 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+
 .header {
     display: flex;
     justify-content: center;
@@ -36,12 +45,6 @@ body {
     height: 90px;
 }
 
-.nav a {
-    text-decoration: none;
-    color: #000000;
-    
-}
-
 .option:hover {
     box-sizing: border-box;
     background-color: #7DFFD8;
@@ -51,18 +54,18 @@ body {
 
 .main {
     float: right;
-    width: 65%;
+    width: 75%;
 }
 
-.main a {
-    text-decoration: none;
-    color: #000000;
+.box-graficos {
+    width: 80%;
+    margin: auto;
 }
 
 .container {
     display: inline-block;
     flex-direction: row;
-    margin: 40px 30px 20px 10px;
+    margin: 40px     20px 10px;
     background-color: #6BD5B5;
     border-radius: 5px;
     overflow: auto;
@@ -91,4 +94,10 @@ body {
 
 .container img { 
     margin: 0 0 0 80px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+
 }

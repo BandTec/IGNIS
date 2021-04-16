@@ -53,9 +53,6 @@ body {
 
 .main {
     float: right;
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 100px;
+    width: 65%;
+    margin: 100px auto;
 }

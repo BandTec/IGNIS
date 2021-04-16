@@ -3,6 +3,14 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
 .header {
     display: flex;
     justify-content: center;
@@ -10,7 +18,7 @@ body {
     align-items: center;
     position: absolute;
     font-size: 25px;
-    width: 30%;
+    width: 25%;
     height: 100%;
     background-color: #45D5AA;
     position: fixed;
@@ -52,7 +60,7 @@ body {
 
 .main {
     float: right;
-    width: 70%;
+    width: 75%;
 }
 
 .main button {

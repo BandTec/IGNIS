@@ -68,3 +68,26 @@ function validarEmpresa() {
         div_cnpj.innerHTML = '';
     }, 5000)
 }
+
+function cadastrar() {
+    var nome = in_nome.value;
+    var email = in_email.value;
+    var cpf = in_cpf.value;
+    var cargo = in_cargo.value;
+
+    if (nome == "" || email == "" || cpf == "" || cargo == "") {
+      div_nome.innerHTML = "Todos os campos devem ser preenchidos";
+    } else if (cpf.length < 11 || cpf.length > 11) {
+      div_cpf.innerHTML = "Insira um CPF válido";
+    } else if ( email.indexOf("@") < 5 || email.indexOf(".com") < 6) {
+      div_email.innerHTML = "Insira um email válido";
+    } else {
+      window.location.href = "cadastro.html";
+    }
+
+    setTimeout(() => {
+        div_nome.innerHTML = '';
+        div_cpf.innerHTML = '';
+        div_email.innerHTML = ''
+    }, 5000)
+  }

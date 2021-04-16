@@ -52,7 +52,8 @@ body {
 
 .main {
     float: right;
-    width: 70%;
+    width: 75%;
+    margin: auto;
 }
 
 .main button {
@@ -61,12 +62,12 @@ body {
     padding: 10px 25px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    margin: 50px 0 80px 80%;
+    margin: 3% 0 5% 79%;
     color: white;
 }
 
 .table {
-    width: 98%;
+    width: 90%;
     margin: auto;
     border-collapse: collapse;
 }
