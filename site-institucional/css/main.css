@@ -201,7 +201,7 @@ header, .second-header {
     width: 40%;
 }
 
-.about img {
+.img_budget {
     height: 70%;
     padding-bottom: 70px;
 }
@@ -326,6 +326,23 @@ header, .second-header {
 
 .gif-bg .about {
     width: 50%;
+}
+
+.about {
+    flex-direction: column;
+}
+
+#details_financial{
+    text-align: center;
+    overflow: auto;
+    width: 80%;
+    margin: 20px auto;
+    font-size: 18px;
+}
+
+.img_profit {
+    height: 55%;
+    padding-bottom: 40px;
 }
 
 .container {
