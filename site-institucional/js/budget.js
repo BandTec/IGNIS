@@ -2,7 +2,7 @@
 function calculateBudget() {
   const meters2 = document.getElementById('meters2').value
   const details = document.getElementById('total-details');
-  const profit = document.getElementById('cash').value;
+  const profit = Number(document.getElementById('cash').value);
   if (meters2 === null || meters2 === '' || meters2 === 0) {
     document.getElementById('meters2').classList.add('error-input');
     document.getElementById('cash').classList.add('error-input');
@@ -45,8 +45,8 @@ function calculateBudget() {
 
     document.getElementById('img_orcamento').classList.add('img_profit');
 
-    details_financial.innerHTML = `Sem nossa solução você perderá mais de R$${profitFormatted} em um incêndio.
-    <br><br> Com a solução ENVSAFE, você economizará cerca de R$${lossFormatted}.
+    details_financial.innerHTML = `Sem nossa solução você perderá mais de ${profitFormatted} em um incêndio.
+    <br><br> Com a solução ENVSAFE, você economizará cerca de ${lossFormatted}.
     <br> Dependendo da intensidade do incêndio, a fertilidade de sua terra pode demorar até 10 anos para se recuperar`
   }
 
