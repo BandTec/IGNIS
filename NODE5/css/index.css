@@ -19,6 +19,11 @@ body {
     padding-top: 10px;
 }
 
+.main {
+    overflow: auto;
+    align-items: center;
+}
+
 .container {
     width: 80%;
     margin: auto;
@@ -56,11 +61,6 @@ body {
 
 .box-item h2 {
     font-size: 15px;
-}
-
-.grafico {
-    width: 80%;
-    margin: auto;
 }
 
 .table {
@@ -104,6 +104,21 @@ body {
     background-color: #00DF76;
 }
 
+.container-graphic {
+    width: 50%;
+    margin: auto;
+    float: left;
+}
+
+.container-graphic h1 {
+    margin: 0;
+}
+
+.grafico {
+    width: 90%;
+    margin: auto;
+}
+
 .saiba-mais button{
     border : 0;
     background-color: #066F4F;
@@ -120,7 +135,6 @@ body {
     height: 100px;
     width: 100%;
     display: flex;
-    position: fixed;
     bottom: 0;
 }
 
