@@ -39,6 +39,19 @@ body {
     align-items: center;
 }
 
+.cadastro-usuario-box {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    width: 50%;
+    height: 80%;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
 #leaf-icon {
     padding: 15px;
     display: flex;
@@ -62,12 +75,13 @@ body {
 }
 
 .form {
-    height: 50px;
+    height: 60px;
     width: 40%;
     float: left;
     margin-right: 8%;
     margin-bottom: 3%;
-    margin-left: 2%
+    margin-left: 2%;
+    padding-bottom: 5px;
 }
 
 .form input {
@@ -98,11 +112,13 @@ body {
     margin: auto;
 }
 
+
 .button01 { 
-    margin-top: 5%;
+    margin-top: 2%;
     border: 0px;
     width: 255px;
-    height: 33px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 6px;
     background-color: #11AB7C;
     color: white;
@@ -110,12 +126,13 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.button02 {
-    margin-top: 5%;
-      background: none;
-      border: none;
-      width: 186px;
-      font-size: 13px;
-      color: #11AB7C;
-      font-family: 'Montserrat', sans-serif;
-} 
+.verificacao {
+    font-size: 10px
+}
+
+a {
+    margin-top: 2%;
+    text-decoration: none;
+    color: #11AB7C;
+    font-size: 13px;
+}

@@ -13,7 +13,7 @@
     <div class="main">
         <div class="container">
 
-            <form class="cadastro-box">
+            <div class="cadastro-box">
                 <div class="header-cadastro-box">
                     <div id="leaf-icon">
                         <img src="./img/login-leaf.svg">
@@ -25,44 +25,48 @@
                         <div class="form">
                             Nome Empresarial
                             <br>
-                            <input type="text" placeholder="Nome Empresarial">
+                            <input id="in_nome" type="text" placeholder="Nome Empresarial">
+                            <div id="div_nome"></div>
                         </div>
                         <div class="form">
                             CEP
                             <br>
-                            <input type="text" placeholder="CEP">
+                            <input id="in_cep" type="text" placeholder="CEP">
                         </div>
                         <div class="form">
                             Bairro
                             <br>
-                            <input type="text" placeholder="Bairro">
+                            <input id="in_bairro" type="text" placeholder="Bairro">
                         </div>
                         <div class="form">
                             Cidade
                             <br>
-                            <input type="text" placeholder="Cidade">
+                            <input id="in_cidade" type="text" placeholder="Cidade">
                         </div>
                         <div class="form">
                             CNPJ
                             <br>
-                            <input type="text" placeholder="CNPJ">
+                            <input id="in_cnpj" type="text" placeholder="CNPJ">
+                            <div id="div_cnpj"></div>
                         </div>
                         <div class="form">
                             Endereço
                             <br>
-                            <input type="text" placeholder="Endereço">
+                            <input id="in_endereco" type="text" placeholder="Endereço">
                         </div>
                         <div class="form">
                             Estado
                             <br>
-                            <input type="text" placeholder="Estado">
+                            <input id="in_estado" type="text" placeholder="Estado">
                         </div>
                     </div>
                 </div>
-                <button class="button01"><b> Próximo </b></button>
-                <button class="button02">Empresa já cadastrada?</button>
-            </form>
+                <button class="button01" onclick="validarEmpresa()"><b> Próximo </b></button>
+                <a href="Cadastro.html">Empresa já cadastrada?</a>
+            </div>
         </div>
     </div>
+
+    <script src="js/cadastro.js"></script>
 </body>
 </html>

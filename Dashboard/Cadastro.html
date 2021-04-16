@@ -11,7 +11,7 @@
     <div class="main">
         <div class="container">
 
-            <form class="cadastro-box">
+            <div class="cadastro-usuario-box">
                 <div class="header-cadastro-box">
                     <div id="leaf-icon">
                         <img src="./img/login-leaf.svg">
@@ -23,62 +23,49 @@
                         <div class="form">
                             Nome Completo
                             <br>
-                            <input type="text" placeholder="Nome completo">
-                            <div id="div_nome"></div>
+                            <input id="in_nome" type="text" placeholder="Nome completo">
+                            <div id="div_nome" class="verificacao"></div>
                         </div>
                         <div class="form">
                             Telefone
                             <br>
-                            <input type="text" placeholder="Número de telefone">
-                            <div id="div_nome"></div>
+                            <input id="in_telefone" type="number" placeholder="Número de telefone">
                         </div>
                         <div class="form">
                             CPF
                             <br>
-                            <input type="text" placeholder="CPF">
-                            <div id="div_nome"></div>
+                            <input id="in_cpf" type="text" placeholder="CPF">
+                            <div id="div_cpf" class="verificacao"></div>
                         </div>
                         <div class="form">
                             Cargo Empresarial
                             <br>
-                            <input type="text" placeholder="Informe seu cargo">
-                            <div id="div_nome"></div>
+                            <input id="in_cargo" type="text" placeholder="Informe seu cargo">
                         </div>
                         <div class="form">
                             Email
                             <br>
-                            <input type="email" placeholder="Endereço de email">
-                            <div id="div_nome"></div>
+                            <input id="in_email" type="text" placeholder="Endereço de email">
+                            <div id="div_email" class="verificacao"></div>
                         </div>
                         <div class="form">
                             Senha
                             <br>
-                            <input id="in_senha" type="password" placeholder="digite sua senha">
-                            <div id="div_senha"></div>
+                            <input id="in_senha" type="password" placeholder="digite sua senha" onkeyup="validarSenha()">
+                            <div id="div_senha" class="verificacao"></div>
                         </div>
                         <div class="form">
                             Confirme sua Senha
                             <br>
                             <input id="in_senha_confirmacao" type="password" placeholder="Confime sua senha novamente">
-                            <div id="div_senha_confir"></div>
+                            <div id="div_senha_confir" class="verificacao"></div>
                         </div>
                     </div>
                 </div>
                 <button class="button01" onclick="validar()"> <b> Cadastre </b> </button>
-            </form>
+            </div>
         </div>
     </div>
+    <script src="./js/cadastro.js"></script>
 </body>
 </html>
-<script>
-    function validar() {
-        var password = in_senha.value;
-        var passwordConf = in_senha_confirmacao.value;
-
-        if (password != passwordConf) {
-            div_senha_confir.innerHTML = "As senhas estão divergentes"
-        } else {
-            window.location.href = "login.html";
-        }
-    }
-</script>
