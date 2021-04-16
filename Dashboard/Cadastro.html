@@ -4,52 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/cadastro-usuario.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&display=swap" rel="stylesheet"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cadastro.css">
     <title>Tela de Cadastro</title>
 </head>
 <body>
-    <div class="central">
-        <img class="img" src="img/signin.png" alt="">
-        <div class="cadastro">
-            <img class="img_f" src="./img/login-leaf.svg">
-           <center><h2>Cadastre seu usuário</h2></center>
-           <span>Nome Completo</span>
-           <br>
-           <input type="text" placeholder="Nome completo">
-           <br><br>
-           <span>Telefone</span>
-           <br>
-           <input type="text" placeholder="Número de telefone">
-           <br><br>
-           <span>Senha</span>
-           <br>
-           <input type="text" placeholder="digite sua senha">
-           <br><br>
-           <span>Cargo Empresarial</span>
-           <br>
-           <input type="text" placeholder="Informe seu cargo">
-           <br><br>
-           <div class="divs">
-              <span>CPF</span>
-              <br>
-              <input type="text" placeholder="CPF">
-              <br><br>
-              <span>Email</span>
-              <br>
-              <input type="text" placeholder="Endereço de email">
-              <br><br>
-              <span>Confirme sua Senha</span>
-              <br>
-              <input type="text" placeholder="Confime sua senha novamente">
-           </div>
-            <button> <b> Cadastre </b> </button>
+    <div class="main">
+        <div class="container">
+
+            <form class="cadastro-box">
+                <div class="header-cadastro-box">
+                    <div id="leaf-icon">
+                        <img src="./img/login-leaf.svg">
+                    </div>
+                    <h2>Cadastre seu usuário</h2>
+                </div>
+                <div class="body-cadastro-box">
+                    <div class="input-group">
+                        <div class="form">
+                            Nome Completo
+                            <br>
+                            <input type="text" placeholder="Nome completo">
+                            <div id="div_nome"></div>
+                        </div>
+                        <div class="form">
+                            Telefone
+                            <br>
+                            <input type="text" placeholder="Número de telefone">
+                            <div id="div_nome"></div>
+                        </div>
+                        <div class="form">
+                            CPF
+                            <br>
+                            <input type="text" placeholder="CPF">
+                            <div id="div_nome"></div>
+                        </div>
+                        <div class="form">
+                            Cargo Empresarial
+                            <br>
+                            <input type="text" placeholder="Informe seu cargo">
+                            <div id="div_nome"></div>
+                        </div>
+                        <div class="form">
+                            Email
+                            <br>
+                            <input type="email" placeholder="Endereço de email">
+                            <div id="div_nome"></div>
+                        </div>
+                        <div class="form">
+                            Senha
+                            <br>
+                            <input id="in_senha" type="password" placeholder="digite sua senha">
+                            <div id="div_senha"></div>
+                        </div>
+                        <div class="form">
+                            Confirme sua Senha
+                            <br>
+                            <input id="in_senha_confirmacao" type="password" placeholder="Confime sua senha novamente">
+                            <div id="div_senha_confir"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="button01" onclick="validar()"> <b> Cadastre </b> </button>
+            </form>
         </div>
     </div>
 </body>
 </html>
+<script>
+    function validar() {
+        var password = in_senha.value;
+        var passwordConf = in_senha_confirmacao.value;
+
+        if (password != passwordConf) {
+            div_senha_confir.innerHTML = "As senhas estão divergentes"
+        } else {
+            window.location.href = "login.html";
+        }
+    }
+</script>
