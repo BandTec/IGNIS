@@ -213,9 +213,16 @@
                 type="number"
                 min="500"
                 step=".01"
-                placeholder="Digite o número de M²"
+                placeholder="Digite o tamanho do seu terreno em M²"
               />
               <label> Mínimo: 500M²</label>
+              <input
+                id="cash"
+                type="number"
+                min="500"
+                step=".01"
+                placeholder="Qual o valor do seu terreno?"
+              />
               <input id="total" placeholder="Total (R$)" disabled />
               <input id="btn-calculate" value="Calcular" type="submit" />
             </form>
@@ -229,16 +236,14 @@
               <div class="stroke"></div>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-              cupiditate pariatur rerum nam. Tempore mollitia sint incidunt odio
-              necessitatibus optio! Officia, quod praesentium totam dolore
-              veritatis quis molestiae iure amet.
+              Desenvolvemos esse simulador financeiro para que você possa ver o benefício que traremos para a sua empresa, com valores reais, e decidir por si próprio utilizar nosso produto
             </p>
           </div>
         </div>
 
         <div class="about">
-          <img src="img/orcamento.svg" />
+          <div id="details_financial"></div>
+          <img id="img_orcamento" class="img_budget" src="img/orcamento.svg"/>
         </div>
       </div>
     </div>
