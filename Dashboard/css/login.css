@@ -91,3 +91,37 @@
 .body-login-box {
   width: 80%;
 }
+
+.login-btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 95%;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.remember-me {
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.forgot-password {
+  margin: 20px 0;
+  display: inline-block;
+  float: right;
+}
