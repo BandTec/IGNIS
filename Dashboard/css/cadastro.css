@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    margin: 0;
+}
+.main {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #11AB7C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background-color: #FDFEFE;
+    width: 88%;
+    height: 82%;
+    border-radius: 15px;
+    background-image: url('../img/login-bg.svg');
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: 50% 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.cadastro-box {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    width: 50%;
+    height: 80%;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#leaf-icon {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+  
+#leaf-icon img {
+    width: 3rem;
+}
+
+.header-cadastro-box {
+    text-align: center;
+}
+  
+.header-cadastro-box h2 {
+    margin-bottom: 10px;
+}
+
+.input-group {
+    margin: 15px auto 0 auto;
+}
+
+.form {
+    height: 50px;
+    width: 40%;
+    float: left;
+    margin-right: 8%;
+    margin-bottom: 3%;
+    margin-left: 2%
+}
+
+.form input {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    width: 230px;
+    height: 30px;
+    margin: 5px 0;
+    padding-left: 10px;
+    font-family: 'Montserrat',sans-serif;
+}
+
+.form input:focus {
+    border: 2px solid #11AB7C;
+}
+
+.form div {
+    font-size: 13px;
+    color: red;
+}
+  
+.input-group input::placeholder {
+    color: #e0e0e0;
+}
+  .body-cadastro-box {
+    width: 80%;
+    margin: auto;
+}
+
+.button01 { 
+    margin-top: 5%;
+    border: 0px;
+    width: 255px;
+    height: 33px;
+    border-radius: 6px;
+    background-color: #11AB7C;
+    color: white;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.button02 {
+    margin-top: 5%;
+      background: none;
+      border: none;
+      width: 186px;
+      font-size: 13px;
+      color: #11AB7C;
+      font-family: 'Montserrat', sans-serif;
+} 
