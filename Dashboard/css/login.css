@@ -42,7 +42,6 @@
   background-color: #FFF;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
@@ -108,11 +107,8 @@
   border: none;
   padding: 10px;
   cursor: pointer;
-}
-
-a {
-  text-decoration: none;
   color: aliceblue;
+  transition: 0.1s;
 }
 
 .remember-me {
@@ -124,4 +120,21 @@ a {
   margin: 20px 0;
   display: inline-block;
   float: right;
+}
+
+.login-btn-box :active {
+  width: calc(100% - 30px);
+  height: calc(100% - 50px);
+  font-size: calc(20px - 3px);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.sign-up {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
 }

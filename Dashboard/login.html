@@ -10,7 +10,7 @@
 <body>
     <div class="main">
         <div class="container">
-            <form class="login-box">
+            <div class="login-box">
                 <div class="header-login-box">
                     <div id="leaf-icon">
                         <img src="./img/login-leaf.svg">
@@ -20,8 +20,8 @@
                 </div>
                 <div class="body-login-box">
                     <div class="input-group">
-                        <input class="input-email" type="email" placeholder="E-mail">
-                        <input class="input-password" type="password" placeholder="Senha">
+                        <input id="email" class="input-email" type="email" placeholder="E-mail">
+                        <input id="pass" class="input-password" type="password" placeholder="Senha">
                     </div>
                     <div class="remember-me">
                         <input id="remember-me" type="checkbox">
@@ -31,18 +31,40 @@
                         <p>Esqueceu a senha?</p>
                     </div>
 
-                    <div class="login-btn-box">
-                        <button class="login-btn">
-                            <a href="./Permissão Total/grafico.html">
-                                Entrar
-                            </a>
+                    <div onclick="loginValidate()" class="login-btn-box">
+                        <button id="btn" class="login-btn">
+                            Entrar
                         </button>
+                    </div>
+
+                    <div class="sign-up">
+                        <p>Não tem uma conta? <a href="#">Cadastre-se</a></p>
                     </div>
                 </div>
 
-            </form>
+            </div>
         </div>
     </div>
 </body>
+
+<script>
+    const adminEmail = 'admin@gmail.com';
+    const adminPass = 'admin123';
+
+    const userEmail = 'user@gmail.com';
+    const userPass = 'user123';
+
+    function loginValidate() {
+        const email = document.getElementById('email').value;
+        const pass = document.getElementById('pass').value;
+
+        if (email == adminEmail && pass == adminPass)
+            window.location.href = "Permissão Total/grafico.html";
+        else if (email == userEmail && pass == userPass)
+            window.location.href = "Sem Permissão/grafico.html";
+        else
+            alert('Login inválido!');
+    }
+</script>
 
 </html>
