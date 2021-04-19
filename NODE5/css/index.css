@@ -19,11 +19,6 @@ body {
     padding-top: 10px;
 }
 
-.main {
-    overflow: auto;
-    align-items: center;
-}
-
 .container {
     width: 80%;
     margin: auto;
