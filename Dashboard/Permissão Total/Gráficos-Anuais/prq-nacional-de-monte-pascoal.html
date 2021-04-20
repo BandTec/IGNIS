@@ -9,24 +9,31 @@
     <!--Link para código do ChartsJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="prq-nacional-de-monte-pascoal.css">
-    <style>
-
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="header">
         <!--Topo-->
         <div class="container">
-            <h1 class="titulo"> <span class="destaque">Nome Usuário</span> Prq. Nacional de Monte Pascoal</h1>
+            <p class="titulo" style="padding-top: 20px;"><span class="destaque"><b>Nome Usuário</b></span> Prq. Nacional
+                de Monte Pascoal</p>
             <ul class="navbar">
                 <li><a href="../graficos-anuais.html"><span class="destaque">Gráfico Média Anual</a></span></li>
             </ul>
         </div>
     </div>
-    <!--grafico-->
-    <div class="meu-grafico">
-        <canvas id="myChart"></canvas>
+
+    <div id="chart_box">
+        <!-- grafico 1 -->
+        <div class="div_umid">
+            <canvas id="chart_umid"></canvas>
+        </div>
+        <!-- grafico 2 -->
+        <div class="div_temp">
+            <canvas id="chart_temp"></canvas>
+        </div>
     </div>
 
     <!--botão-->
@@ -36,17 +43,14 @@
             <button>Saber mais</button>
         </div>
     </div>
-    <!-- foot-->
-    <div class="footer">
-        <div class="container">
-        </div>
-    </div>
 </body>
 
 </html>
 <script>
-    var ctx = document.getElementById('myChart');
-    var meuGrafico = new Chart(ctx, {
+    var element_umid = document.getElementById('chart_umid'); // canvas umidade
+    var element_temp = document.getElementById('chart_temp'); // canvas temperatura
+    // Gráfico 1 Umidade 
+    var div_umid = new Chart(element_umid, {
         type: 'bar',
         data: {
             labels: ["Janeiro", "Fevereiro", "Março", "Abril",
@@ -54,22 +58,65 @@
                 "Outubro", "Novembro", "Dezembro"],
             datasets: [
                 {
-                    label: "Temperatura 2020",
-                    data: [27, 31, 27, 28, 25, 25, 22, 22, 25, 28, 37, 39],
-                    borderWidth: 5,
-                    borderColor: 'green',
-                    backgroundColor: 'green',
-                },
-
-                // Segundo dataset
-                {
-                    // igual o anterior. Mas, aqui, type line
-                    type: 'bar',
-                    label: "Umidade 2020",
+                    label: "Umidade %",
                     data: [27, 18, 25, 28, 24, 24, 40, 32, 44, 48, 24, 40],
                     borderWidth: 5,
-                    borderColor: 'blue',
-                    backgroundColor: 'blue'
+                    borderColor: '#42B5ED',
+                    backgroundColor: '#42B5ED',
+                }
+            ]
+        },
+        options: {
+            title: {
+                display: true,
+                fontSize: 26,
+                text: "Umidade 2020",
+                position: 'top',
+            },
+            axisY:{
+                labelFontWeight: "bold"
+            },
+            legend: {
+                display: true,
+                reverse: false,
+                position: 'bottom'
+            },
+            layout: {
+                padding: {
+                    left: 50,
+                    top: 50
+                },
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                        max: 80,
+                        callback: function (value) {
+                            return value.toFixed(0) + "%";
+                        }
+                    }
+                }]
+            },
+    
+        }
+    })
+    Chart.defaults.global.defaultFontColor = "black";
+
+    // Gráfico 2 Temperatura  
+    var div_temp = new Chart(element_temp, {
+        type: 'bar',
+        data: {
+            labels: ["Janeiro", "Fevereiro", "Março", "Abril",
+                "Maio", "Junho", "Julho", "Agosto", "Setembro",
+                "Outubro", "Novembro", "Dezembro"],
+            datasets: [
+                {
+                    label: "Temperatura em °C",
+                    data: [27, 31, 27, 28, 25, 25, 22, 22, 25, 28, 37, 39],
+                    borderWidth: 5,
+                    borderColor: '#FF5B14',
+                    backgroundColor: '#FF5B14',
                 }
             ]
         },
@@ -83,7 +130,7 @@
                 // tamanho do texto
                 fontSize: 26,
                 // texto no titulo
-                text: "Gráfico Anual",
+                text: "Temperatura 2020",
                 // onde? right? left? top?
                 position: 'top',
             },
@@ -91,7 +138,7 @@
                 // mostrar legenda?
                 display: true,
                 // ao contrario? (dataset 1 depois de 2)
-                reverse: true,
+                reverse: false,
                 // onde?
                 position: 'bottom'
             },
@@ -106,9 +153,9 @@
                 yAxes: [{
                     ticks: {
                         min: 0,
-                        max: 60,
+                        max: 40,
                         callback: function (value) {
-                            return value.toFixed(0) + "%";
+                            return value.toFixed(0) + "°C";
                         }
                     }
                 }]
