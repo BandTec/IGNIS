@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil</title>
+    <link rel="stylesheet" href="css/perfil.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="header">
+      <img src="img/user.svg" alt="Foto Usuário" />
+      <ul class="nav">
+        <li class="username"><b>Nome de Usuário</b></li>
+        <a href="grafico.html"><li class="option">Gráficos</li></a>
+        <a href="mapa.html"><li class="option">Mapa</li></a>
+        <a href="graficos-anuais.html"
+          ><li class="option">Gráficos Anuais</li></a
+        >
+        <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
+        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
+      </ul>
+    </div>
+
+    <div class="main">
+      <h1>Olá, <b>Nome do Usuário</b></h1>
+
+      <div class="container">
+        Empresa: Nome Empresa LTDA<br />
+        E-mail: endereço@email.com.br<br />
+        Telefone: (41) 98271-4659<br />
+        Senha: *******<br />
+        <span onclick="erro()">Alterar Perfil</span>
+      </div>
+
+      <div class="container">
+        Faturas Vencidas: Nenhuma<br />
+        Vencimento da próxima fatura: 25/06/2021<br />
+        <span>Ver faturas</span>
+      </div>
+
+      <div class="container">
+        Áreas monitoradas: 105<br />
+        Sensores: 1005<br />
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  function erro() {
+    alert("Você não tem permissão para fazer isso.");
+  }
+</script>

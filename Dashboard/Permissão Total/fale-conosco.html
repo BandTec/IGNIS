@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fale Conosco</title>
-    <link rel="stylesheet" href="css/fale-conosco.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <style type="text/css">
-    </style>
-</head>
+    <link rel="stylesheet" href="css/fale-conosco.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style type="text/css"></style>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <img src="img/user.svg" alt="Foto Usuário">
-        <ul class="nav">
-            <li class="username">Nome de Usuário</li>
-            <a href="grafico.html"><li class="option">Gráficos</li></a>
-            <a href="mapa.html"><li class="option">Mapa</li></a>
-            <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
-            <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
-            <li class="option"><b>Fale Conosco</b></li>
-        </ul>
+      <img src="img/user.svg" alt="Foto Usuário" />
+      <ul class="nav">
+        <a href="perfil.html"><li class="username">Nome de Usuário</li></a>
+        <a href="grafico.html"><li class="option">Gráficos</li></a>
+        <a href="mapa.html"><li class="option">Mapa</li></a>
+        <a href="graficos-anuais.html"
+          ><li class="option">Gráficos Anuais</li></a
+        >
+        <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
+        <li class="option"><b>Fale Conosco</b></li>
+      </ul>
     </div>
     <div class="main">
-        <div class="container">
-            <div class="fale_conosco"><br>
-                <select id="sel_opcao">
-                    <option value="0" disabled selected>Selecione uma Categoria</option>
-                    <option value="1">Marcar Reunião</option>
-                    <option value="2">Assistência Técnica</option>
-                    <option value="3">Suporte</option>
-                </select>
-                <h3>Assuntos</h3>
-                <textarea id="text_assunto" rows="1" cols="40"></textarea>
+      <div class="container">
+        <div class="fale_conosco">
+          <br />
+          <select id="sel_opcao">
+            <option value="0" disabled selected>Selecione uma Categoria</option>
+            <option value="1">Marcar Reunião</option>
+            <option value="2">Assistência Técnica</option>
+            <option value="3">Suporte</option>
+          </select>
+          <h3>Assuntos</h3>
+          <textarea id="text_assunto" rows="1" cols="40"></textarea>
 
-                <h3>Anexo(Opcional)</h3>
-                <input type="file" id="ipt_anexo" style="margin: 0;">
+          <h3>Anexo(Opcional)</h3>
+          <input type="file" id="ipt_anexo" style="margin: 0" />
 
-                <h3>Descrição</h3>
-                <textarea id="text_descricao" rows="7" cols="40"></textarea><br>
-                <button onclick="bt_chamado()">Abrir Chamado</button>
-            </div>
+          <h3>Descrição</h3>
+          <textarea id="text_descricao" rows="7" cols="40"></textarea><br />
+          <button onclick="bt_chamado()">Abrir Chamado</button>
         </div>
+      </div>
     </div>
     <script src="../js/dashboard.js"></script>
-</body>
+  </body>
 </html>
