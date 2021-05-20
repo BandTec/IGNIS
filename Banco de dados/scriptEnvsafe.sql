@@ -23,23 +23,22 @@ create table Cliente (
 );
 
 create table Usuario (
-	fkCliente int,
-    foreign key (fkCliente) references Cliente(idCliente),
-    idUsuario int,
-    primary key (fkCliente, idUsuario),
+	idUsuario int primary key auto_increment,
     emailUsuario varchar(100),
     senhaUsuario varchar(16),
     nomeUsuario varchar(100),
     cpfUsuario varchar(14),
     cargoUsuario varchar(45),
     nivelPermissao int,
-    check (nivelPermissao = 1 or nivelPermissao = 0)
+    check (nivelPermissao = 1 or nivelPermissao = 0),
+    fkCliente int,
+    foreign key (fkCliente) references Cliente(idCliente)
 );
+
 
 create table Telefone (
 	 idTelefone int primary key auto_increment,
 	 numeroTelefone VARCHAR(25),
-	 tipoTelefone VARCHAR(20),
 	 fkCliente int,
 	 foreign key (fkCliente) references Cliente(idCliente)
  );
