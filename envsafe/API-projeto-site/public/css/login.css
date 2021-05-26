@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+  --primary-color: #11AB7C;
+  --secundary-color: #FDFEFE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: var(--secundary-color);
+  width: 88%;
+  height: 82%;
+  border-radius: 15px;
+  background-image: url('../img/login-bg.svg');
+  background-size: 75%;
+  background-repeat: no-repeat;
+  background-position: 50% 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  width: 35.6%;
+  height: 80%;
+  background-color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#leaf-icon {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+#leaf-icon img {
+  width: 3rem;
+}
+
+.header-login-box {
+  text-align: center;
+}
+
+.header-login-box h2 {
+  margin-bottom: 10px;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15px auto 0 auto;
+}
+
+.input-group input:first-child {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 80%;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  outline: none;
+  padding: 10px;
+}
+
+.input-group input::placeholder {
+  color: #e0e0e0;
+}
+
+.body-login-box {
+  width: 80%;
+}
+
+.login-btn-box {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 95%;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  outline: 0;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  color: aliceblue;
+  transition: 0.1s;
+}
+
+.remember-me {
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.forgot-password {
+  margin: 20px 0;
+  display: inline-block;
+  float: right;
+}
+
+.login-btn-box :active {
+  width: calc(100% - 30px);
+  height: calc(100% - 50px);
+  font-size: calc(20px - 3px);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.sign-up {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
