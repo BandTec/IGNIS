@@ -5,5 +5,8 @@
   "scripts": {
     "start": "node ./API-projeto-site/bin/www",
     "postinstall": "cd API-projeto-site && npm install"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
   }
 }

@@ -9,16 +9,17 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.2",
-    "express": "^4.16.2",
-    "mssql": "^6.2.0",
-    "mysql": "^2.18.1",
-    "serialport": "^9.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "^4.16.2",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
+    "mssql": "^6.2.0",
+    "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
     "sequelize": "^5.21.2",
+    "serialport": "^9.0.0",
     "tedious": "^6.6.0"
   }
 }
