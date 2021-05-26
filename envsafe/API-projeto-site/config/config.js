@@ -2,10 +2,10 @@ module.exports = {
   // Insira aqui seus dados do banco NA NUVEM AZURE
   production: {
     // altere APENAS username, password, database e host.
-    username: 'xxxx',
-    password: 'xxxx',
-    database: 'xxx',
-    host: 'xxxx',
+    username: process.env.PROD_USER,
+    password: process.env.PROD_PASS,
+    database: process.env.PROD_NAME,
+    host: process.env.PROD_HOST,
     dialect: 'mssql',
     xuse_env_variable: 'DATABASE_URL',
     dialectOptions: {
@@ -25,9 +25,9 @@ module.exports = {
   // Insira aqui seus dados do banco LOCAL - MySQL Workbench
   dev: {
     // altere APENAS username, password e database.
-    username: 'IGNIS',
-    password: 'ignis123',
-    database: 'envsafe',
+    username: process.env.DEV_USER,
+    password: process.env.DEV_PASS,
+    database: process.env.DEV_NAME,
     host: '127.0.0.1',
     dialect: 'mysql',
     xuse_env_variable: 'DATABASE_URL',
