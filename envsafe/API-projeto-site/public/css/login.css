@@ -37,7 +37,7 @@
 .login-box {
   font-family: 'Montserrat', sans-serif;
   font-size: 0.9rem;
-  width: 35.6%;
+  width: 37%;
   height: 80%;
   background-color: #FFF;
   display: flex;
@@ -109,6 +109,37 @@
   cursor: pointer;
   color: aliceblue;
   transition: 0.1s;
+}
+#email {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 85%;
+  height: 45px;
+  margin: 5px 0 10px 25px;
+  padding-left: 30px;
+  font-family: "Montserrat", sans-serif;
+  background: url("../img/icone-user.svg") no-repeat;
+  background-position-y: center;
+  background-position-x: 10px;
+
+}
+#pass {
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  width: 85%;
+  height: 45px;
+  margin: 5px 0 10px 25px;
+  padding-left: 30px;
+  font-family: "Montserrat", sans-serif;
+  background: url("../img/icone-senha.svg") no-repeat;
+  background-position-y: center;
+  background-position-x: 10px;
+}
+
+#form_login input:focus {
+  border: 1px solid #11ab7c;
 }
 
 .remember-me {
