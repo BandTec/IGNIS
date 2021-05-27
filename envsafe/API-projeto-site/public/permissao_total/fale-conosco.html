@@ -30,7 +30,7 @@
     </div>
     <div class="main">
       <div class="container">
-        <div class="fale_conosco">
+        <form action="mailto:help@ignis-envsafe.on.spiceworks.com" class="fale_conosco">
           <br />
           <select id="sel_opcao">
             <option value="0" disabled selected>Selecione uma Categoria</option>
@@ -47,7 +47,7 @@
           <h3>Descrição</h3>
           <textarea id="text_descricao" rows="7" cols="40"></textarea><br />
           <button onclick="bt_chamado()">Abrir Chamado</button>
-        </div>
+        </form>
       </div>
     </div>
     <script src="../js/dashboard.js"></script>
@@ -55,5 +55,5 @@
   </body>
 </html>
 <script>
-  verificarAutenticacao()
+  // verificarAutenticacao()
 </script>
