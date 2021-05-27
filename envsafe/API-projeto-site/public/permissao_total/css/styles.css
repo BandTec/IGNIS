@@ -24,16 +24,12 @@ body {
     width: 100%;
 }
 
-.username {
-    margin-bottom: 15px;
-}
-
 .nav li {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90px;
+    height: 80px;
 }
 
 .nav a {

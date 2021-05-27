@@ -129,5 +129,5 @@ function finalizar_sessao() {
 }
 
 function redirecionarLogin() {
-  window.location.href = "login.html";
+  window.location.href = "../login.html";
 }

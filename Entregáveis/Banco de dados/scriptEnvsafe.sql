@@ -1,7 +1,7 @@
 create database envsafe;
 
 use envsafe;
-
+select * from usuario;
 create table Endereco (
 	idEndereco int primary key auto_increment,
 	logradouro varchar(100),
@@ -159,3 +159,5 @@ select * from terreno right join cliente
 	on fkCliente = idCliente;
 select * from cliente right join endereco
 	on fkEndereco = idEndereco;
+    
+    desc Usuario;
