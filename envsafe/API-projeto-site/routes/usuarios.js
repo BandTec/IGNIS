@@ -49,9 +49,9 @@ router.post("/autenticar", function (req, res, next) {
     })
     .then((resultado) => {
       console.log(`Encontrados: ${resultado.length}`);
-
+      
       if (resultado.length == 1) {
-        sessoes.push(resultado[0].dataValues.email);
+        sessoes.push(resultado[0].dataValues.emailUsuario);
         console.log("sessoes: ", sessoes);
         res.json(resultado[0]);
       } else if (resultado.length == 0) {
@@ -68,7 +68,7 @@ router.post("/autenticar", function (req, res, next) {
 
 /* Verificação de usuário */
 router.get("/sessao/:login", function (req, res, next) {
-  let login = req.params.login_html;
+  let login = req.params.login;
   console.log(`Verificando se o usuário ${login} tem sessão`);
 
   let tem_sessao = false;
@@ -90,7 +90,7 @@ router.get("/sessao/:login", function (req, res, next) {
 
 /* Logoff de usuário */
 router.get("/sair/:login", function (req, res, next) {
-  let login = req.params.login_html;
+  let login = req.params.login;
   console.log(`Finalizando a sessão do usuário ${login}`);
   let nova_sessoes = [];
   for (let u = 0; u < sessoes.length; u++) {

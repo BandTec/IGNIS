@@ -12,11 +12,11 @@
       rel="stylesheet"
     />
   </head>
-  <body onload="atualizacaoPeriodica()">
+  <body>
     <div class="header">
       <img src="img/user.svg" alt="Foto Usuário" />
       <ul class="nav">
-        <a href="perfil.html"><li class="username">Nome de Usuário</li></a>
+        <a href="perfil.html"><li class="username">Olá, <b id="b_usuario"> Nome de Usuário</b></li></a>
         <li class="option"><b>Gráficos</b></li>
         <a href="mapa.html"><li class="option">Mapa</li></a>
         <a href="graficos-anuais.html"
@@ -92,5 +92,9 @@
         </div>
       </div>
     </div>
+    <script src="../js/validacoes.js"></script>
   </body>
 </html>
+<script>
+  verificarAutenticacao()
+</script>
