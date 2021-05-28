@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
 		id: {
 			field: 'idDadoSensor',
 			type: DataTypes.INTEGER,
-			primaryKey: true
+			primaryKey: true,
+			autoIncrement: true
 		},
 		temperatura: {
 			field: 'temperaturaSensor',
