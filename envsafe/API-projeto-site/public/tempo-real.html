@@ -140,7 +140,7 @@
         //aguardar();
         fetch(`/leituras/tempo-real/${idcaminhao}`)
         .then(resposta => {
-
+            
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
 
@@ -157,8 +157,8 @@
                     atualizarTela(dados, idcaminhao);
                 });
             } else {
-
                 console.error('Nenhum dado encontrado ou erro na API');
+                console.log(resposta)
             }
         })
         .catch(function (error) {
