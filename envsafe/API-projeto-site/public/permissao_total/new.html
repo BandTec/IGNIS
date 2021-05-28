@@ -1,115 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" href="css/edit.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <div class="header">
-      <img src="img/user.svg" alt="Foto Usuário" />
-      <ul class="nav">
-        <a href="perfil.html"><li class="username">Olá, <b id="b_usuario"> Nome de Usuário</b></li></a>
-        <a href="grafico.html"><li class="option">Gráficos</li></a>
-        <a href="mapa.html"><li class="option">Mapa</li></a>
-        <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
-        <li class="option"><b>Cadastro de Usuário</b></li>
-        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
-        <li class="option" onclick="sair()">Logout</li>
-      </ul>
-    </div>
-    <div class="main">
-      <div class="container">
-        <h2>Dados para acesso ao sistema:</h2>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Usuário</title>
+  <link rel="stylesheet" href="css/edit.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="header">
+    <img src="img/user.svg" alt="Foto Usuário" />
+    <ul class="nav">
+      <a href="perfil.html">
+        <li class="username">Olá, <b id="b_usuario"> Nome de Usuário</b></li>
+      </a>
+      <a href="grafico.html">
+        <li class="option">Gráficos</li>
+      </a>
+      <a href="mapa.html">
+        <li class="option">Mapa</li>
+      </a>
+      <a href="graficos-anuais.html">
+        <li class="option">Gráficos Anuais</li>
+      </a>
+      <li class="option"><b>Cadastro de Usuário</b></li>
+      <a href="fale-conosco.html">
+        <li class="option">Fale Conosco</li>
+      </a>
+      <li class="option" onclick="sair()">Logout</li>
+    </ul>
+  </div>
+  <div class="main">
+    <div class="container">
+      <h2>Dados para acesso ao sistema:</h2>
+      <form id="form_cadastro_usuario_dashboard"
+      method="post"
+      onsubmit="return cadastrar_usuario()">
         <div class="form">
           Nome:
           <br />
-          <input
-            id="in_nome"
-            type="text"
-            placeholder="Informe o Nome do Funcionário"
-            autofocus
-          />
+          <input name="nome" id="in_nome" type="text" placeholder="Informe o Nome do Funcionário" autofocus />
           <div id="div_nome"></div>
         </div>
         <div class="form">
           CPF:
           <br />
-          <input
-            id="in_cpf"
-            type="text"
-            placeholder="Informe o CPF do Funcionário"
-          />
+          <input name="cpf" id="in_cpf" type="text" placeholder="Informe o CPF do Funcionário" />
           <div id="div_cpf"></div>
         </div>
         <div class="form">
           Email:
           <br />
-          <input
-            id="in_email"
-            type="text"
-            placeholder="Informe o email do Funcionário"
-          />
+          <input name="email" id="in_email" type="text" placeholder="Informe o email do Funcionário" />
           <div id="div_email"></div>
         </div>
         <div class="form">
           Cargo:
           <br />
-          <input
-            id="in_cargo"
-            type="text"
-            placeholder="Informe o cargo do Funcionário"
-          />
+          <input name="cargo" id="in_cargo" type="text" placeholder="Informe o cargo do Funcionário" />
         </div>
-      </div>
-      <div class="container">
-        <h2>Permissões:</h2>
-        <label
-          ><input type="checkbox" name="" id="" /> Cadastrar novos
-          usuários</label
-        >
-        <label><input type="checkbox" name="" id="" /> Editar Usuários</label>
-        <label
-          ><input type="checkbox" name="" id="" /> Solicitar novos
-          sensores</label
-        >
-      </div>
-      <div class="container">
-        <h2>Acesso aos sensores:</h2>
-        <label
-          ><input type="checkbox" name="" id="" checked /> Parque Nacional da
-          Serra Geral</label
-        >
-        <label
-          ><input type="checkbox" name="" id="" checked /> Parque Serra do
-          Ricardo Franco</label
-        >
-        <label
-          ><input type="checkbox" name="" id="" checked /> Pq. Nacional da
-          Chapada dos Guimarães</label
-        >
-        <label
-          ><input type="checkbox" name="" id="" checked /> Parque Nacional de
-          Ilha Grande</label
-        >
-        <label
-          ><input type="checkbox" name="" id="" checked /> Parque Nacional de
-          Monte Pascoal</label
-        >
-      </div>
-
-      <button onclick="cadastrar()">Confirmar</button>
+        <div class="form">
+          Senha:
+          <br />
+          <input name="senha" id="in_senha" type="text" placeholder="Senha" />
+        </div>
+        <div class="form">
+          Telefone:
+          <br />
+          <input name="telefone" id="in_tel" type="text" placeholder="Informe o cargo do Funcionário" />
+        </div>
     </div>
-    <script src="../js/validacoes.js"></script>
-  </body>
+    <div class="container">
+      <h2>Permissões:</h2>
+      <label><input type="checkbox" name="" id="" /> Cadastrar novos
+        usuários</label>
+      <label><input type="checkbox" name="" id="" /> Editar Usuários</label>
+      <label><input type="checkbox" name="" id="" /> Solicitar novos
+        sensores</label>
+    </div>
+    <div class="container">
+      <h2>Acesso aos sensores:</h2>
+      <label><input type="checkbox" name="" id="" checked /> Parque Nacional da
+        Serra Geral</label>
+      <label><input type="checkbox" name="" id="" checked /> Parque Serra do
+        Ricardo Franco</label>
+      <label><input type="checkbox" name="" id="" checked /> Pq. Nacional da
+        Chapada dos Guimarães</label>
+      <label><input type="checkbox" name="" id="" checked /> Parque Nacional de
+        Ilha Grande</label>
+      <label><input type="checkbox" name="" id="" checked /> Parque Nacional de
+        Monte Pascoal</label>
+    </div>
+
+    <button onclick="cadastrar()">Confirmar</button>
+  </div>
+  </form>
+  <script src="../js/validacoes.js"></script>
+</body>
+
 </html>
 <script>
-  verificarAutenticacao()
+  // verificarAutenticacao()
 </script>

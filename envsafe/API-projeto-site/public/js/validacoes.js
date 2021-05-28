@@ -72,6 +72,26 @@ function cadastrar_usuario() {
   return false;
 }
 
+function cadastrar_usuario_dashboard() {
+  var formulario = new URLSearchParams(new FormData(form_cadastro_usuario_dashboard));
+  fetch("/usuarios/cadastrar", {
+    method: "POST",
+    body: formulario,
+  }).then(function (response) {
+    if (response.ok) {
+      alert ("Cadastro Efetuado");
+    } else {
+      console.log("Erro de cadastro");
+      response.text().then(function (resposta) {
+        div_erro.innerHTML = resposta;
+      });
+    }
+  });
+
+  return false;
+}
+
+
 function cadastrar() {
   var formulario = new URLSearchParams(new FormData(form_cadastro));
   fetch("/clientes/cadastrar", {
