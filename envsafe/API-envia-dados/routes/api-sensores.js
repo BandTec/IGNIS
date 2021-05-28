@@ -24,7 +24,7 @@ router.get("/sendData", (request, response) => {
 		// Na variável abaixo, coloque o Insert que será executado no Workbench
 		// salvo exceções, é igual a SQL Server
 
-		instrucaoSql = `INSERT into dadoSensor (fkSensor, idDadoSensor, temperaturaSensor, umidadeSensor) values (2, ${idDado++}, ${temperature}, ${Humidity});`;
+		instrucaoSql = `INSERT into dadoSensor (temperaturaSensor, umidadeSensor,fkSensor) values (${temperature}, ${Humidity},2);`;
 		
 	} else {
 

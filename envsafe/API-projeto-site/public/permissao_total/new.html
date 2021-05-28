@@ -28,6 +28,9 @@
     <div class="main">
       <div class="container">
         <h2>Dados para acesso ao sistema:</h2>
+        <form id="form_cadastro_usuario_dashboard"
+      method="post"
+      onsubmit="return cadastrar_usuario()">
         <div class="form">
           Nome:
           <br />
@@ -68,6 +71,16 @@
             placeholder="Informe o cargo do Funcionário"
           />
         </div>
+        <div class="form">
+          Senha:
+          <br />
+          <input name="senha" id="in_senha" type="text" placeholder="Senha" />
+        </div>
+        <div class="form">
+          Telefone:
+          <br />
+          <input name="telefonen" id="in_tel" type="text" placeholder="Informe o cargo do Funcionário" />
+        </div>
       </div>
       <div class="container">
         <h2>Permissões:</h2>
@@ -107,6 +120,7 @@
 
       <button onclick="cadastrar()">Confirmar</button>
     </div>
+  </form>    
     <script src="../js/validacoes.js"></script>
   </body>
 </html>
