@@ -1,6 +1,7 @@
 create database envsafe;
-
 use envsafe;
+
+
 select * from usuario;
 create table Endereco (
 	idEndereco int primary key auto_increment,
@@ -64,13 +65,12 @@ create table Sensor (
 );
 
 create table dadoSensor (
-	fkSensor int,
-    foreign key (fkSensor) references Sensor(idSensor),
-    idDadoSensor int,
-    primary key (idDadoSensor, fkSensor),
+    idDadoSensor int primary key auto_increment,
     temperaturaSensor float,
     umidadeSensor float,
-    momento datetime default current_timestamp
+    momento datetime default current_timestamp,
+	fkSensor int,
+    foreign key (fkSensor) references Sensor(idSensor)
 );
 
 insert into endereco values 
@@ -161,3 +161,5 @@ select * from cliente right join endereco
 	on fkEndereco = idEndereco;
     
     desc Usuario;
+    
+    drop table dadosensor;

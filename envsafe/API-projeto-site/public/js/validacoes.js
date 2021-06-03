@@ -39,7 +39,12 @@ function entrar() {
         sessionStorage.login_usuario_meuapp = json.emailUsuario;
         sessionStorage.nome_usuario_meuapp = json.nomeUsuario;
 
-        window.location.href = "permissao_total/grafico.html";
+        if(json.nivelPermissao == 0) {
+          window.location.href = "sem_permissao/grafico.html";
+        } else if (json.nivelPermissao == 1) {
+          window.location.href = "permissao_total/grafico.html";
+        }
+
       });
     } else {
       console.log("Erro de login!");
@@ -133,7 +138,13 @@ function verificarAutenticacao() {
   if (login_usuario == undefined) {
     redirecionarLogin();
   } else {
-    b_usuario.innerHTML = nome_usuario;
+    
+    var html_tag = Array.from(document.getElementsByClassName('nome_usuario_html'))
+    
+    html_tag.forEach(element => {
+      element.innerHTML = nome_usuario;
+    });
+
     validarSessao();
   }
 }

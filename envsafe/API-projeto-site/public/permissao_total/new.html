@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 
 <head>
   <meta charset="UTF-8" />
@@ -38,6 +39,37 @@
     <div class="container">
       <h2>Dados para acesso ao sistema:</h2>
       <form id="form_cadastro_usuario_dashboard"
+=======
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Usuário</title>
+    <link rel="stylesheet" href="css/edit.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <img src="img/user.svg" alt="Foto Usuário" />
+      <ul class="nav">
+        <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
+        <a href="grafico.html"><li class="option">Gráficos</li></a>
+        <a href="mapa.html"><li class="option">Mapa</li></a>
+        <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
+        <li class="option"><b>Cadastro de Usuário</b></li>
+        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
+        <li class="option" onclick="sair()">Sair</li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="container">
+        <h2>Dados para acesso ao sistema:</h2>
+        <form id="form_cadastro_usuario_dashboard"
+>>>>>>> 19cf0531365141d64d8eef23b31123201dd33014
       method="post"
       onsubmit="return cadastrar_usuario()">
         <div class="form">
@@ -71,6 +103,7 @@
         <div class="form">
           Telefone:
           <br />
+<<<<<<< HEAD
           <input name="telefone" id="in_tel" type="text" placeholder="Informe o cargo do Funcionário" />
         </div>
     </div>
@@ -102,6 +135,52 @@
   <script src="../js/validacoes.js"></script>
 </body>
 
+=======
+          <input name="telefonen" id="in_tel" type="text" placeholder="Informe o cargo do Funcionário" />
+        </div>
+      </div>
+      <div class="container">
+        <h2>Permissões:</h2>
+        <label
+          ><input type="checkbox" name="" id="" /> Cadastrar novos
+          usuários</label
+        >
+        <label><input type="checkbox" name="" id="" /> Editar Usuários</label>
+        <label
+          ><input type="checkbox" name="" id="" /> Solicitar novos
+          sensores</label
+        >
+      </div>
+      <div class="container">
+        <h2>Acesso aos sensores:</h2>
+        <label
+          ><input type="checkbox" name="" id="" checked /> Parque Nacional da
+          Serra Geral</label
+        >
+        <label
+          ><input type="checkbox" name="" id="" checked /> Parque Serra do
+          Ricardo Franco</label
+        >
+        <label
+          ><input type="checkbox" name="" id="" checked /> Pq. Nacional da
+          Chapada dos Guimarães</label
+        >
+        <label
+          ><input type="checkbox" name="" id="" checked /> Parque Nacional de
+          Ilha Grande</label
+        >
+        <label
+          ><input type="checkbox" name="" id="" checked /> Parque Nacional de
+          Monte Pascoal</label
+        >
+      </div>
+
+      <button onclick="cadastrar()">Confirmar</button>
+    </div>
+  </form>    
+    <script src="../js/validacoes.js"></script>
+  </body>
+>>>>>>> 19cf0531365141d64d8eef23b31123201dd33014
 </html>
 <script>
   // verificarAutenticacao()

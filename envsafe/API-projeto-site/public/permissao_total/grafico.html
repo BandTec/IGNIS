@@ -12,17 +12,17 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body onload="atualizacaoPeriodica()">
     <div class="header">
       <img src="img/user.svg" alt="Foto Usuário" />
       <ul class="nav">
-        <a href="perfil.html"><li class="username">Olá, <b id="b_usuario"> Nome de Usuário</b></li></a>
+        <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
         <li class="option"><b>Gráficos</b></li>
         <a href="mapa.html"><li class="option">Mapa</li></a>
         <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
         <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
-        <a href="https://ignis-envsafe.on.spiceworks.com/portal/registrations"><li class="option">Fale Conosco</li></a>
-        <li class="option" onclick="sair()">Logout</li>
+        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
+        <li class="option" onclick="sair()">Sair</li>
       </ul>
     </div>
     <div class="main">
@@ -30,70 +30,46 @@
         <a href="../../NODE5/index.html">
           <div class="container">
             <h2>Prq. Nacional de Monte Pascoal</h2>
-            <div class="data">Média de temperatura: 27°C</div>
-            <div class="data">Média de umidade: 25%</div>
-            <img src="img/excelente.svg" alt="icon" />
+            <div class="data" id="div_temperatura">Temperatura sendo obtida...</div>
+            <div class="data" id="div_umidade">Umidade sendo obtida...</div>
+            <img id="img_alerta" alt="icon" />
           </div>
         </a>
         <div class="container">
           <h2>Prq. Serra do Ricardo Franco</h2>
-          <div class="data">Média de temperatura: 28°C</div>
-          <div class="data">Média de umidade: 30%</div>
-          <img src="img/excelente.svg" alt="icon" />
+          <div class="data" id="div_temperatura2">Temperatura sendo obtida...</div>
+          <div class="data" id="div_umidade2">Umidade sendo obtida...</div>
+          <img id="img_alerta2" alt="icon" />
         </div>
         <div class="container">
           <h2>Prq. Nacional de Ilha Grande</h2>
-          <div class="data">Média de temperatura: 42°C</div>
-          <div class="data">Média de umidade: 17%</div>
-          <img src="img/danger.svg" alt="icon" />
+          <div class="data" id="div_temperatura3">Temperatura sendo obtida... </div>
+          <div class="data" id="div_umidade3">Umidade sendo obtida...</div>
+          <img id="img_alerta3" alt="icon" />
         </div>
         <div class="container">
           <h2>Prq. Nacional da Serra Geral</h2>
-          <div class="data">Média de temperatura: 33°C</div>
-          <div class="data">Média de umidade: 29%</div>
-          <img src="img/attention.svg" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. Nacional de Aparados da Serra</h2>
-          <div class="data">Média de temperatura: 29°C</div>
-          <div class="data">Média de umidade: 22%</div>
-          <img src="img/attention.svg" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. Nacional dos Guimarães</h2>
-          <div class="data">Média de temperatura: 35°C</div>
-          <div class="data">Média de umidade: 32%</div>
-          <img src="img/attention.svg" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. da Chapada Diamantina</h2>
-          <div class="data">Média de temperatura: 28°C</div>
-          <div class="data">Média de umidade: 40%</div>
-          <img src="img/excelente.svg" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Áreas da Amazônia Central</h2>
-          <div class="data">Média de temperatura: 38°C</div>
-          <div class="data">Média de umidade: 20%</div>
-          <img src="img/danger.svg" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. Nacional do Itatiaia</h2>
-          <div class="data">Média de temperatura: 26°C</div>
-          <div class="data">Média de umidade: 55%</div>
-          <img src="img/excelente.svg" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. Nacional do Pantanal</h2>
-          <div class="data">Média de temperatura: 36°C</div>
-          <div class="data">Média de umidade: 20%</div>
-          <img src="img/danger.svg" alt="icon" />
+          <div class="data" id="div_temperatura4">Temperatura sendo obtida...</div>
+          <div class="data" id="div_umidade4">Umidade sendo obtida..</div>
+          <img id="img_alerta4" alt="icon"/>
         </div>
       </div>
     </div>
     <script src="../js/validacoes.js"></script>
+    <script src="../js/dashboard.js"></script>
   </body>
 </html>
 <script>
-  verificarAutenticacao()
+  // verificarAutenticacao()
+
+  function sendData() {
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:9001/api/sendData', false);
+        http.send(null);
+    }
+
+    // Descomente abaixo se quiser inserir dados a cada X segundos  
+    setInterval(() => {
+        sendData();
+    }, 5000);
 </script>
