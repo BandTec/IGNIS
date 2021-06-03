@@ -1,0 +1,4 @@
+nome: IGNIS
+Help Desk URL: https://ignis-envsafe.on.spiceworks.com
+Portal URL: https://ignis-envsafe.on.spiceworks.com/portal
+EMAIL: help@ignis-envsafe.on.spiceworks.com
