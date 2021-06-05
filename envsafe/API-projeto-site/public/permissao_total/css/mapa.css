@@ -49,6 +49,12 @@ body {
 
 .main {
     float: right;
-    width: 65%;
-    margin: 100px auto;
+    width: 75%;
+    margin: 50px auto;
+}
+
+#mapid {
+    height: 650px;
+    width: 80%;
+    margin: auto;
 }

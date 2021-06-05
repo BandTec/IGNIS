@@ -11,16 +11,34 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <script src="../js/heatmap.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="../js/leaflet-heatmap.js"></script>
   </head>
-
   <body>
     <div class="header">
       <img src="img/user.svg" alt="Foto Usuário" />
       <ul class="nav">
-        <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
+        <a href="perfil.html"
+          ><li class="username">
+            Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b>
+          </li></a
+        >
         <a href="grafico.html"><li class="option">Gráficos</li></a>
         <li class="option"><b>Mapa</b></li>
-        <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
+        <a href="graficos-anuais.html"
+          ><li class="option">Gráficos Anuais</li></a
+        >
         <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
         <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
         <li class="option" onclick="sair()">Sair</li>
@@ -28,384 +46,118 @@
     </div>
     <div class="main">
       <div class="contaier">
-        <div
-          id="mapa"
-          style="min-height: 500px; width: 818px; position: relative"
-          class="inline leaflet-container leaflet-fade-anim"
-          tabindex="0"
-        >
-          <div
-            class="leaflet-map-pane"
-            style="transform: translate3d(0px, 0px, 0px)"
-          >
-            <div class="leaflet-tile-pane">
-              <div class="leaflet-layer">
-                <div class="leaflet-tile-container"></div>
-                <div class="leaflet-tile-container leaflet-zoom-animated">
-                  <img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://a.tile.openstreetmap.org/4/4/8.png"
-                    style="height: 256px; width: 256px; left: 102px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://b.tile.openstreetmap.org/4/5/8.png"
-                    style="height: 256px; width: 256px; left: 358px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://b.tile.openstreetmap.org/4/4/9.png"
-                    style="height: 256px; width: 256px; left: 102px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://c.tile.openstreetmap.org/4/5/9.png"
-                    style="height: 256px; width: 256px; left: 358px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://c.tile.openstreetmap.org/4/4/7.png"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 102px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://a.tile.openstreetmap.org/4/5/7.png"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 358px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://c.tile.openstreetmap.org/4/3/8.png"
-                    style="height: 256px; width: 256px; left: -154px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://c.tile.openstreetmap.org/4/6/8.png"
-                    style="height: 256px; width: 256px; left: 614px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://a.tile.openstreetmap.org/4/3/9.png"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: 332px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://a.tile.openstreetmap.org/4/6/9.png"
-                    style="height: 256px; width: 256px; left: 614px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://c.tile.openstreetmap.org/4/4/10.png"
-                    style="height: 256px; width: 256px; left: 102px; top: 588px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://a.tile.openstreetmap.org/4/5/10.png"
-                    style="height: 256px; width: 256px; left: 358px; top: 588px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://b.tile.openstreetmap.org/4/3/7.png"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://b.tile.openstreetmap.org/4/6/7.png"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 614px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://b.tile.openstreetmap.org/4/3/10.png"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: 588px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="https://b.tile.openstreetmap.org/4/6/10.png"
-                    style="height: 256px; width: 256px; left: 614px; top: 588px"
-                  />
-                </div>
-              </div>
-              <div class="leaflet-layer" style="z-index: 1">
-                <div class="leaflet-tile-container"></div>
-                <div class="leaflet-tile-container leaflet-zoom-animated">
-                  <img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-2504688.542848655,-7514065.628545966,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: 102px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-2504688.542848655,-5009377.085697311,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: 358px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-5009377.085697311,-7514065.628545966,-2504688.542848655"
-                    style="height: 256px; width: 256px; left: 102px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-5009377.085697311,-5009377.085697311,-2504688.542848655"
-                    style="height: 256px; width: 256px; left: 358px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-7.081154551613622e-10,-7514065.628545966,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 102px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-7.081154551613622e-10,-5009377.085697311,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 358px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-2504688.542848655,-10018754.171394622,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: -154px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-2504688.542848655,-2504688.5428486555,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: 614px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-5009377.085697311,-10018754.171394622,-2504688.542848655"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: 332px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-5009377.085697311,-2504688.5428486555,-2504688.542848655"
-                    style="height: 256px; width: 256px; left: 614px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-7514065.628545966,-7514065.628545966,-5009377.085697311"
-                    style="height: 256px; width: 256px; left: 102px; top: 588px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-7514065.628545966,-5009377.085697311,-5009377.085697311"
-                    style="height: 256px; width: 256px; left: 358px; top: 588px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-7.081154551613622e-10,-10018754.171394622,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-7.081154551613622e-10,-2504688.5428486555,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 614px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-7514065.628545966,-10018754.171394622,-5009377.085697311"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: 588px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=observacao_rf_obs&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;ANO=2021&amp;MES=03&amp;DIA=30&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-7514065.628545966,-2504688.5428486555,-5009377.085697311"
-                    style="height: 256px; width: 256px; left: 614px; top: 588px"
-                  />
-                </div>
-              </div>
-              <div class="leaflet-layer" style="z-index: 2">
-                <div class="leaflet-tile-container"></div>
-                <div class="leaflet-tile-container leaflet-zoom-animated">
-                  <img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-2504688.542848655,-7514065.628545966,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: 102px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-2504688.542848655,-5009377.085697311,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: 358px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-5009377.085697311,-7514065.628545966,-2504688.542848655"
-                    style="height: 256px; width: 256px; left: 102px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-5009377.085697311,-5009377.085697311,-2504688.542848655"
-                    style="height: 256px; width: 256px; left: 358px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-7.081154551613622e-10,-7514065.628545966,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 102px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-7.081154551613622e-10,-5009377.085697311,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 358px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-2504688.542848655,-10018754.171394622,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: -154px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-2504688.542848655,-2504688.5428486555,-7.081154551613622e-10"
-                    style="height: 256px; width: 256px; left: 614px; top: 76px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-5009377.085697311,-10018754.171394622,-2504688.542848655"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: 332px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-5009377.085697311,-2504688.5428486555,-2504688.542848655"
-                    style="height: 256px; width: 256px; left: 614px; top: 332px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-10018754.171394622,-7514065.628545966,-7514065.628545966,-5009377.085697311"
-                    style="height: 256px; width: 256px; left: 102px; top: 588px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-7514065.628545966,-7514065.628545966,-5009377.085697311,-5009377.085697311"
-                    style="height: 256px; width: 256px; left: 358px; top: 588px"
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-7.081154551613622e-10,-10018754.171394622,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-7.081154551613622e-10,-2504688.5428486555,2504688.5428486555"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: 614px;
-                      top: -180px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-12523442.714243276,-7514065.628545966,-10018754.171394622,-5009377.085697311"
-                    style="
-                      height: 256px;
-                      width: 256px;
-                      left: -154px;
-                      top: 588px;
-                    "
-                  /><img
-                    class="leaflet-tile leaflet-tile-loaded"
-                    src="http://sirc.dgi.inpe.br/cgi-bin/mapserv?map=/dados/mapfiles/riscofogo.map&amp;&amp;SERVICE=WMS&amp;REQUEST=GetMap&amp;VERSION=1.3.0&amp;LAYERS=geo_estados&amp;STYLES=&amp;FORMAT=image%2Fpng&amp;TRANSPARENT=true&amp;HEIGHT=256&amp;WIDTH=256&amp;TILED=true&amp;CRS=EPSG%3A3857&amp;BBOX=-5009377.085697311,-7514065.628545966,-2504688.5428486555,-5009377.085697311"
-                    style="height: 256px; width: 256px; left: 614px; top: 588px"
-                  />
-                </div>
-              </div>
-            </div>
-            <div class="leaflet-objects-pane">
-              <div class="leaflet-shadow-pane"></div>
-              <div class="leaflet-overlay-pane"></div>
-              <div class="leaflet-marker-pane"></div>
-              <div class="leaflet-popup-pane"></div>
-            </div>
-          </div>
-          <div class="leaflet-control-container">
-            <div class="leaflet-top leaflet-left">
-              <div class="leaflet-bar message displayNone"></div>
-            </div>
-          </div>
-          <div class="leaflet-top leaflet-right">
-            <div
-              class="leaflet-control-layers leaflet-control-layers-expanded leaflet-control"
-              aria-haspopup="true"
-            >
-              <form class="leaflet-control-layers-list">
-                <div class="leaflet-control-layers-base">
-                  <label
-                    ><input
-                      type="radio"
-                      class="leaflet-control-layers-selector"
-                      name="leaflet-base-layers"
-                      checked="checked"
-                    /><span> Risco de Fogo Observado - 1 dia</span></label
-                  >
-                </div>
-                <div
-                  class="leaflet-control-layers-separator"
-                  style="display: none"
-                ></div>
-                <div class="leaflet-control-layers-overlays"></div>
-              </form>
-            </div>
-          </div>
-          <div class="leaflet-bottom leaflet-left">
-            <div class="leaflet-control-scale leaflet-control">
-              <div class="leaflet-control-scale-line" style="width: 44px">
-                500 km
-              </div>
-              <div class="leaflet-control-scale-line" style="width: 78px">
-                500 mi
-              </div>
-            </div>
-          </div>
-          <div class="leaflet-bottom leaflet-right">
-            <div class="leaflet-control-attribution leaflet-control">
-              <a
-                href="http://leafletjs.com"
-                title="A JS library for interactive maps"
-                >Leaflet</a
-              >
-              | ©
-              <a href="https://www.openstreetmap.org/copyright"
-                >OpenStreetMap</a
-              >
-              contributors
-            </div>
-          </div>
-        </div>
+        <div id="mapid"></div>
       </div>
     </div>
     <script src="../js/validacoes.js"></script>
   </body>
 </html>
 <script>
-  verificarAutenticacao()
+  //verificarAutenticacao();
+
+  var baseLayer = L.tileLayer(
+    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+      attribution: "...",
+      maxZoom: 18,
+    }
+  );
+
+  var cfg = {
+    radius: 2,
+    maxOpacity: 0.8,
+    scaleRadius: true,
+    useLocalExtrema: true,
+    latField: "lat",
+    lngField: "lng"
+  };
+
+  var heatmapLayer = new HeatmapOverlay(cfg);
+
+  var mymap = L.map("mapid", {
+    center: new L.LatLng(-14.1999346, -60.679193),
+    zoom: 4,
+    layers: [baseLayer, heatmapLayer],
+  });
+
+  function getData() {
+    fetch(`/dadosSensor/dadosEmpresa`)
+      .then((resposta) => {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            for (let index = 0; index < resposta.length; index++) {
+              var dados = {
+                temperatura: resposta[index].temperatura,
+                umidade: resposta[index].umidade,
+                latitude: resposta[index].latitude,
+                longitude: resposta[index].longitude,
+              };
+
+              verificarDados(
+                dados.temperatura,
+                dados.umidade,
+                dados.latitude,
+                dados.longitude
+              );
+            }
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+          console.log(resposta);
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados dos terrenos: ${error.message}`
+        );
+      });
+  }
+
+  var counts = [];
+  var dados_arr = []
+
+  function verificarDados(temperatura, umidade, latitude, longitude) {
+
+    var limites = {
+      max_temperatura: 36,
+      media_temperatura: 35,
+      ideal_temperatura: 28,
+      min_umidade: 20,
+      media_umidade: 36,
+      ideal_umidade: 37,
+    };
+
+    if (
+      temperatura > limites.max_temperatura &&
+      umidade <= limites.min_umidade
+    ) {
+      counts.push(100);
+    }
+
+    if (
+      temperatura <= limites.media_temperatura &&
+      temperatura > limites.ideal_temperatura &&
+      umidade <= limites.media_umidade &&
+      umidade > limites.min_umidade
+    ) {
+      counts.push(30);
+    }
+
+    if (
+      temperatura <= limites.ideal_temperatura &&
+      umidade >= limites.ideal_umidade
+    ) {
+      counts.push(10);
+    }
+    
+    heatmapLayer.addData({ lat: latitude, lng: longitude, value: counts[counts.length - 1]});
+  }
+
+  getData();
+
+  // setInterval(() => {
+    
+  // }, 20000)
+  
 </script>
