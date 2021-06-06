@@ -126,7 +126,7 @@ insert into dadoSensor (fkSensor, idDadoSensor, temperaturaSensor, umidadeSensor
     (4, 1, 29, 28),
     (5, 1, 28.8, 45),
     (6, 1, 30.3, 39);
-
+use envSafe;
 select * from endereco;
 select * from cliente;
 select * from usuario;
