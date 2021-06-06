@@ -85,6 +85,7 @@ function cadastrar_usuario_dashboard() {
   }).then(function (response) {
     if (response.ok) {
       alert ("Cadastro Efetuado");
+      window.location.reload();
     } else {
       console.log("Erro de cadastro");
       response.text().then(function (resposta) {
