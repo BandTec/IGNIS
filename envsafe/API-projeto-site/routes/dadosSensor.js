@@ -88,19 +88,15 @@ router.get("/pegardados/:idTerreno", function (req, res, next) {
     });
 });
 
-router.get("/dadosEmpresa", function (req, res, next) {
-  console.log("Recuperando caminhões");
-
-  //var idcaminhao = req.body.idcaminhao; // depois de .body, use o nome (name) do campo em seu formulário de login
-  var idterreno = req.params.idTerreno;
+router.get("/dadosMapa", function (req, res, next) {
 
   let instrucaoSql = "";
 
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
     instrucaoSql = `select temperaturaSensor as temperatura, umidadeSensor as umidade, latitude, longitude from dadoSensor
-			inner join sensor
-			on fkSensor = idSensor;`;
+		inner join sensor
+		on fkSensor = idSensor where idDadoSensor in (select max(idDadoSensor) from dadoSensor group by fkSensor);`;
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
     instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, fkcaminhao from leitura where fkcaminhao = ${idcaminhao} order by id desc`;

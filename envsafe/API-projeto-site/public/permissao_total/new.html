@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cadastro de Usuário</title>
   <link rel="stylesheet" href="css/edit.css" />
+  <link rel="shortcut icon" href="img/logo-icon.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
@@ -73,27 +74,14 @@
     </div>
     <div class="container">
       <h2>Permissões:</h2>
-      <label><input type="checkbox" name="" id="" /> Cadastrar novos
-        usuários</label>
-      <label><input type="checkbox" name="" id="" /> Editar Usuários</label>
-      <label><input type="checkbox" name="" id="" /> Solicitar novos
-        sensores</label>
-    </div>
-    <div class="container">
-      <h2>Acesso aos sensores:</h2>
-      <label><input type="checkbox" name="" id="" checked /> Parque Nacional da
-        Serra Geral</label>
-      <label><input type="checkbox" name="" id="" checked /> Parque Serra do
-        Ricardo Franco</label>
-      <label><input type="checkbox" name="" id="" checked /> Pq. Nacional da
-        Chapada dos Guimarães</label>
-      <label><input type="checkbox" name="" id="" checked /> Parque Nacional de
-        Ilha Grande</label>
-      <label><input type="checkbox" name="" id="" checked /> Parque Nacional de
-        Monte Pascoal</label>
+      <select name="permissao">
+        <option hidden>Escolha o nível de permissão do usuário</option>
+        <option value="0">Permissão Parcial</option>
+        <option value="0">Permissão Total</option>
+      </select>
     </div>
 
-    <button type="submit" onclick="resetar_pagina()">Confirmar</button>
+    <button type="submit">Confirmar</button>
   </div>
   </form>
 

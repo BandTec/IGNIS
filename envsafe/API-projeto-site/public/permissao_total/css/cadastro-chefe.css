@@ -79,8 +79,9 @@ body {
 .table tr:hover {
   background-color: #ddd;
 }
+
 .table td {
-  padding: 20px 15px;
+  padding: 20px 8px;
   text-align: center;
 }
 
@@ -89,4 +90,9 @@ body {
   background-color: #45d5aa;
   text-align: center;
   color: rgb(0, 0, 0);
+}
+
+.table img {
+  height: 20px;
+  cursor: pointer;
 }

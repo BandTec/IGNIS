@@ -111,14 +111,3 @@ function atualizarTela(dados, idTerreno) {
 
     div_umidade_alterar.innerHTML = `Média de umidade: ${dados.umidade}%`;
 }
-
-function sendData() {
-    var http = new XMLHttpRequest();
-    http.open('GET', 'http://localhost:9001/api/sendData', false);
-    http.send(null);
-}
-
-// Descomente abaixo se quiser inserir dados a cada X segundos  
-setInterval(() => {
-    sendData();
-}, 5000);

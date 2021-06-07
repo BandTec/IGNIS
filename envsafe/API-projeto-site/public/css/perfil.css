@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  font-size: 25px;
+  width: 25%;
+  height: 100%;
+  background-color: #45D5AA;
+  position: fixed;
+}
+
+.nav {
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  width: 100%;
+}
+
+.nav li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  cursor: pointer;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.option:hover {
+  box-sizing: border-box;
+  background-color: #7DFFD8;
+  font-weight: bold;
+  border-left: 10px solid #066F4F;
+}
+
+.main {
+  float: right;
+  width: 75%;
+}
+
+.container {
+  overflow: auto;
+  width: 80%;
+  margin: 15px auto;
+}
+
+.destaque {
+  color: #658077;
+  font-weight: bold;
+}
+
+.boas-vindas {
+  background-color: #11AB7C;
+  color: white;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.boas-vindas h2{
+  margin-top: 15px;
+}
+
+.box {
+  padding: auto;
+}
+
+.box-item {
+  background-color: #64CCAD;
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+  padding: 20px 5px;
+  border-radius: 5px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.box-item i {
+  display: block;
+  margin-top: 10px;
+  margin-left: 530px;
+}

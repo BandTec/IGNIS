@@ -6,17 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro de Usuário</title>
     <link rel="stylesheet" href="css/cadastro-chefe.css" />
+    <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <div class="header">
-      <img src="img/user.svg" alt="Foto Usuário" />
+      <img src="../img/user.svg" alt="Foto Usuário" />
       <ul class="nav">
-        <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
+        <a href="perfil.html"
+          ><li class="username">
+            Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b>
+          </li></a
+        >
         <a href="grafico.html"><li class="option">Gráficos</li></a>
         <a href="mapa.html"><li class="option">Mapa</li></a>
-        <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
+        <a href="graficos-anuais.html"
+          ><li class="option">Gráficos Anuais</li></a
+        >
         <li class="option"><b>Cadastro de Usuário</b></li>
         <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
         <li class="option" onclick="sair()">Sair</li>
@@ -24,76 +34,12 @@
     </div>
     <div class="main">
       <a href="new.html"><button>Novo Usuário</button></a>
-      <table class="table">
+      <table class="table" id="tabela_usuarios">
         <tr class="row">
           <th>Nome Completo</th>
           <th>CPF</th>
           <th>Cargo</th>
-          <th>Editar</th>
-        </tr>
-        <tr>
-          <td>Gilberto Amaral</td>
-          <td>071.832.630-02</td>
-          <td>Gerente Administrativo</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Abel Almeida</td>
-          <td>137.321.370-15</td>
-          <td>Presidente</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Iago Batista</td>
-          <td>834.047.390-51</td>
-          <td>Gerente Financeiro</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Catarina Barros</td>
-          <td>560.433.880-06</td>
-          <td>Agrônomo</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Daniel Barbosa</td>
-          <td>926.236.230-74</td>
-          <td>Gestor rural</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Leandro Andrade</td>
-          <td>948.747.000-04</td>
-          <td>Assessor Técnico</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Adriano Alves</td>
-          <td>706.508.890-10</td>
-          <td>Agrônomo</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
-        </tr>
-        <tr>
-          <td>Lúcio Amaral</td>
-          <td>293.108.650-91</td>
-          <td>Assessor Técnico</td>
-          <td>
-            <a href="edit.html"><img src="img/edit.svg" /></a>
-          </td>
+          <th>Deletar</th>
         </tr>
       </table>
     </div>
@@ -101,5 +47,6 @@
   </body>
 </html>
 <script>
-  verificarAutenticacao()
+  verificarAutenticacao();
+  atualizarUsuario();
 </script>

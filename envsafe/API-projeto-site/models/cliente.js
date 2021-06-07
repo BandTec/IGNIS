@@ -18,6 +18,12 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.CHAR(14),
       allowNull: false
     }, 
+    status: {
+      field: 'statusCliente',
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0,
+    },
     endereco_id: {
       field: 'fkEndereco',
       type: DataTypes.INTEGER,

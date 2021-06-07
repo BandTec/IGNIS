@@ -7,6 +7,7 @@
     <title>Mapas</title>
     <link rel="stylesheet" href="css/mapa.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="shortcut icon" href="img/logo-icon.svg">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
       rel="stylesheet"
@@ -50,114 +51,7 @@
       </div>
     </div>
     <script src="../js/validacoes.js"></script>
+    <script src="../js/sendData.js"></script>
+    <script src="../js/mapa.js"></script>
   </body>
 </html>
-<script>
-  verificarAutenticacao();
-
-  var baseLayer = L.tileLayer(
-    "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    {
-      attribution: "...",
-      maxZoom: 18,
-    }
-  );
-
-  var cfg = {
-    radius: 2,
-    maxOpacity: 0.8,
-    scaleRadius: true,
-    useLocalExtrema: true,
-    latField: "lat",
-    lngField: "lng"
-  };
-
-  var heatmapLayer = new HeatmapOverlay(cfg);
-
-  var mymap = L.map("mapid", {
-    center: new L.LatLng(-14.1999346, -60.679193),
-    zoom: 4,
-    layers: [baseLayer, heatmapLayer],
-  });
-
-  function getData() {
-    fetch(`/dadosSensor/dadosEmpresa`)
-      .then((resposta) => {
-        if (resposta.ok) {
-          resposta.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            for (let index = 0; index < resposta.length; index++) {
-              var dados = {
-                temperatura: resposta[index].temperatura,
-                umidade: resposta[index].umidade,
-                latitude: resposta[index].latitude,
-                longitude: resposta[index].longitude,
-              };
-
-              verificarDados(
-                dados.temperatura,
-                dados.umidade,
-                dados.latitude,
-                dados.longitude
-              );
-            }
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-          console.log(resposta);
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados dos terrenos: ${error.message}`
-        );
-      });
-  }
-
-  var counts = [];
-  var dados_arr = []
-
-  function verificarDados(temperatura, umidade, latitude, longitude) {
-
-    var limites = {
-      max_temperatura: 36,
-      media_temperatura: 35,
-      ideal_temperatura: 28,
-      min_umidade: 20,
-      media_umidade: 36,
-      ideal_umidade: 37,
-    };
-
-    if (
-      temperatura > limites.max_temperatura &&
-      umidade <= limites.min_umidade
-    ) {
-      counts.push(100);
-    }
-
-    if (
-      temperatura <= limites.media_temperatura &&
-      temperatura > limites.ideal_temperatura &&
-      umidade <= limites.media_umidade &&
-      umidade > limites.min_umidade
-    ) {
-      counts.push(30);
-    }
-
-    if (
-      temperatura <= limites.ideal_temperatura &&
-      umidade >= limites.ideal_umidade
-    ) {
-      counts.push(10);
-    }
-    
-    heatmapLayer.addData({ lat: latitude, lng: longitude, value: counts[counts.length - 1]});
-  }
-
-  getData();
-
-  // setInterval(() => {
-    
-  // }, 20000)
-  
-</script>

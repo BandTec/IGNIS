@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gráficos</title>
     <link rel="stylesheet" href="css/graficos.css" />
+    <link rel="shortcut icon" href="img/logo-icon.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
@@ -57,19 +58,9 @@
     </div>
     <script src="../js/validacoes.js"></script>
     <script src="../js/dashboard.js"></script>
+    <script src="../js/sendData.js"></script>
   </body>
 </html>
 <script>
   verificarAutenticacao()
-
-  function sendData() {
-        var http = new XMLHttpRequest();
-        http.open('GET', 'http://localhost:9001/api/sendData', false);
-        http.send(null);
-    }
-
-    // Descomente abaixo se quiser inserir dados a cada X segundos  
-    setInterval(() => {
-        sendData();
-    }, 5000);
 </script>

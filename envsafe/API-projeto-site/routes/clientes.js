@@ -25,7 +25,9 @@ router.post('/cadastrar', async function(req, res, next) {
     endereco_id: endereco.dataValues.id
   })
 
-  res.send(cliente);
+  console.log(cliente)
+
+  res.send({ id : cliente.dataValues.id})
 
   global.client_id = cliente.dataValues.id
 });
