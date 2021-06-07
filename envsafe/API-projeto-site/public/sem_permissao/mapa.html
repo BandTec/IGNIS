@@ -1,145 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapas</title>
-    <link rel="stylesheet" href="css/mapa.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-    <style type="text/css">
-        @import url(https://queimadas.dgi.inpe.br/queimadas/portal/portal_css/Sunburst%20Theme/++resource++queimadas.inpe/css/leaflet.css);
-    </style>
-</head>
+    <link rel="stylesheet" href="css/mapa.css" />
+    <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+    rel="stylesheet"
+    />
+    <script src="../js/heatmap.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""
+    />
+    <script
+    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""
+    ></script>
+    <script src="../js/leaflet-heatmap.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <img src="img/user.svg" alt="Foto Usuário">
-        <ul class="nav">
-            <li class="username">Nome de Usuário</li>
-            <a href="graphic.html"><li class="option">Gráficos</li></a>
-            <li class="option"><b>Mapa</b></li>
-            <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
-            <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
-        </ul>
+      <img src="../img/user.svg" alt="Foto Usuário" />
+      <ul class="nav">
+        <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
+        <a href="grafico.html"><li class="option">Gráficos</li></a>
+        <li class="option"><b>Mapa</b></li>
+        <a href="graficos-anuais.html"
+          ><li class="option">Gráficos Anuais</li></a
+        >
+        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
+        <li class="option" onclick="sair()">Sair</li>
+      </ul>
     </div>
     <div class="main">
-        <div class="contaier">
-          <div id="mapid"></div>
-        </div>
+      <div class="contaier">
+        <div id="mapid"></div>
       </div>
-      <script src="../js/validacoes.js"></script>
-    </body>
-  </html>
-  <script>
-    //verificarAutenticacao();
-  
-    var baseLayer = L.tileLayer(
-      "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      {
-        attribution: "...",
-        maxZoom: 18,
-      }
-    );
-  
-    var cfg = {
-      radius: 2,
-      maxOpacity: 0.8,
-      scaleRadius: true,
-      useLocalExtrema: true,
-      latField: "lat",
-      lngField: "lng"
-    };
-  
-    var heatmapLayer = new HeatmapOverlay(cfg);
-  
-    var mymap = L.map("mapid", {
-      center: new L.LatLng(-14.1999346, -60.679193),
-      zoom: 4,
-      layers: [baseLayer, heatmapLayer],
-    });
-  
-    function getData() {
-      fetch(`/dadosSensor/dadosEmpresa`)
-        .then((resposta) => {
-          if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-              for (let index = 0; index < resposta.length; index++) {
-                var dados = {
-                  temperatura: resposta[index].temperatura,
-                  umidade: resposta[index].umidade,
-                  latitude: resposta[index].latitude,
-                  longitude: resposta[index].longitude,
-                };
-  
-                verificarDados(
-                  dados.temperatura,
-                  dados.umidade,
-                  dados.latitude,
-                  dados.longitude
-                );
-              }
-            });
-          } else {
-            console.error("Nenhum dado encontrado ou erro na API");
-            console.log(resposta);
-          }
-        })
-        .catch(function (error) {
-          console.error(
-            `Erro na obtenção dos dados dos terrenos: ${error.message}`
-          );
-        });
-    }
-  
-    var counts = [];
-    var dados_arr = []
-  
-    function verificarDados(temperatura, umidade, latitude, longitude) {
-  
-      var limites = {
-        max_temperatura: 36,
-        media_temperatura: 35,
-        ideal_temperatura: 28,
-        min_umidade: 20,
-        media_umidade: 36,
-        ideal_umidade: 37,
-      };
-  
-      if (
-        temperatura > limites.max_temperatura &&
-        umidade <= limites.min_umidade
-      ) {
-        counts.push(100);
-      }
-  
-      if (
-        temperatura <= limites.media_temperatura &&
-        temperatura > limites.ideal_temperatura &&
-        umidade <= limites.media_umidade &&
-        umidade > limites.min_umidade
-      ) {
-        counts.push(30);
-      }
-  
-      if (
-        temperatura <= limites.ideal_temperatura &&
-        umidade >= limites.ideal_umidade
-      ) {
-        counts.push(10);
-      }
-      
-      heatmapLayer.addData({ lat: latitude, lng: longitude, value: counts[counts.length - 1]});
-    }
-  
-    getData();
-  
-    // setInterval(() => {
-      
-    // }, 20000)
-    
-  </script>
-  
+    </div>
+    <script src="../js/validacoes.js"></script>
+    <script src="../js/sendData.js"></script>
+    <script src="../js/mapa.js"></script>
+  </body>
+</html>
+

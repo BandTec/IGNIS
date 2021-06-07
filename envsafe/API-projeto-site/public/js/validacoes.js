@@ -1,5 +1,6 @@
 let login_usuario;
 let nome_usuario;
+let empresa_usuario;
 
 function validarSenha() {
   var password = in_senha.value;
@@ -38,13 +39,17 @@ function entrar() {
       resposta.json().then((json) => {
         sessionStorage.login_usuario_meuapp = json.emailUsuario;
         sessionStorage.nome_usuario_meuapp = json.nomeUsuario;
+        sessionStorage.setItem("idCliente", json.fkCliente)
 
-        if(json.nivelPermissao == 0) {
-          window.location.href = "sem_permissao/grafico.html";
-        } else if (json.nivelPermissao == 1) {
-          window.location.href = "permissao_total/grafico.html";
+        if(json.statusCliente == 0) {
+          window.location.href = "negociacao.html";
+        } else {
+          if (json.nivelPermissao == 0) {
+            window.location.href = "sem_permissao/grafico.html";
+          } else if (json.nivelPermissao == 1) {
+            window.location.href = "permissao_total/grafico.html";
+          }
         }
-
       });
     } else {
       console.log("Erro de login!");
@@ -60,7 +65,9 @@ function entrar() {
 
 function cadastrar_usuario() {
   var formulario = new URLSearchParams(new FormData(form_cadastro_usuario));
-  fetch("/usuarios/cadastrar", {
+
+  const id = sessionStorage.getItem("id")
+  fetch(`/usuarios/cadastrar/${id}`, {
     method: "POST",
     body: formulario,
   }).then(function (response) {
@@ -78,14 +85,18 @@ function cadastrar_usuario() {
 }
 
 function cadastrar_usuario_dashboard() {
-  var formulario = new URLSearchParams(new FormData(form_cadastro_usuario_dashboard));
-  fetch("/usuarios/cadastrar", {
+  empresa_usuario = sessionStorage.getItem("idCliente");
+
+  var formulario = new URLSearchParams(
+    new FormData(form_cadastro_usuario_dashboard)
+  );
+  fetch(`/usuarios/cadastrar/${empresa_usuario}`, {
     method: "POST",
     body: formulario,
   }).then(function (response) {
     if (response.ok) {
-      alert ("Cadastro Efetuado");
-      window.location.reload();
+      alert("Cadastro Efetuado");
+      window.location.href = "cadastro.html"
     } else {
       console.log("Erro de cadastro");
       response.text().then(function (resposta) {
@@ -97,7 +108,6 @@ function cadastrar_usuario_dashboard() {
   return false;
 }
 
-
 function cadastrar() {
   var formulario = new URLSearchParams(new FormData(form_cadastro));
   fetch("/clientes/cadastrar", {
@@ -105,7 +115,13 @@ function cadastrar() {
     body: formulario,
   }).then(function (response) {
     if (response.ok) {
-      window.location.href = "cadastro.html";
+      response.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
+        sessionStorage.setItem("id", resposta.id)
+
+        window.location.href = "cadastro.html";
+      });
+      // 
     } else {
       console.log("Erro de cadastro");
       response.text().then(function (resposta) {
@@ -134,15 +150,16 @@ function validarSessao() {
 
 function verificarAutenticacao() {
   login_usuario = sessionStorage.login_usuario_meuapp;
-  nome_usuario = sessionStorage.nome_usuario_meuapp
+  nome_usuario = sessionStorage.nome_usuario_meuapp;
 
   if (login_usuario == undefined) {
     redirecionarLogin();
   } else {
-    
-    var html_tag = Array.from(document.getElementsByClassName('nome_usuario_html'))
-    
-    html_tag.forEach(element => {
+    var html_tag = Array.from(
+      document.getElementsByClassName("nome_usuario_html")
+    );
+
+    html_tag.forEach((element) => {
       element.innerHTML = nome_usuario;
     });
 
@@ -162,4 +179,51 @@ function finalizar_sessao() {
 
 function redirecionarLogin() {
   window.location.href = "../login.html";
+}
+
+function deletarUsuario(id_parametros) {
+  const confirmacao = confirm("Realmente deseja excluir este funcionário?")
+
+  if(confirmacao) {
+    fetch(`/usuarios/deletar/${id_parametros}`, {
+      method: "DELETE",
+    }).then(_ => {
+      atualizarUsuario()
+    });
+  }
+}
+
+function atualizarUsuario() {
+  empresa_usuario = sessionStorage.getItem("idCliente");
+
+  fetch(`/usuarios/pegarUsuarios/${empresa_usuario}`).then((resposta) => {
+    console.log(resposta);
+    if (resposta.ok) {
+      resposta.json().then(function (resposta) {
+        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+        tabela_usuarios.innerHTML = `<tr class="row">
+              <th>Permissão</th>
+              <th>Nome Completo</th>
+              <th>CPF</th>
+              <th>Cargo</th>
+              <th>Deletar</th>
+            </tr>`;
+
+        for (let i = 0; i < resposta.length; i++) {
+          tabela_usuarios.innerHTML += `<tr>
+              <td>${resposta[i].nivelPermissao == 1 ? "Total" : "Parcial"}</td>
+              <td>${resposta[i].nomeUsuario}</td>
+              <td>${resposta[i].cpfUsuario}</td>
+              <td>${resposta[i].cargoUsuario}</td>
+              <td>
+                <img src="img/delete.svg" onclick="deletarUsuario(${resposta[i].idUsuario})" />
+              </td>
+            </tr>`;
+        }
+      });
+    } else {
+      console.error("Nenhum Usuário Encontrado");
+    }
+  });
 }

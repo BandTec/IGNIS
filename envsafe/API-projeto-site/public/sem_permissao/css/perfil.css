@@ -29,9 +29,15 @@ body {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 90px;
+    height: 80px;
     cursor: pointer;
 }
+
+
+.username {
+    margin-bottom: 30px;
+}
+
 
 .nav a {
     text-decoration: none;
