@@ -99,7 +99,9 @@ router.get("/dadosMapa", function (req, res, next) {
 		on fkSensor = idSensor where idDadoSensor in (select max(idDadoSensor) from dadoSensor group by fkSensor);`;
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
-    instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, fkcaminhao from leitura where fkcaminhao = ${idcaminhao} order by id desc`;
+    instrucaoSql = `select temperaturaSensor as temperatura, umidadeSensor as umidade, latitude, longitude from dadoSensor
+		inner join sensor
+		on fkSensor = idSensor where idDadoSensor in (select max(idDadoSensor) from dadoSensor group by fkSensor);`;
   } else {
     console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n");
   }

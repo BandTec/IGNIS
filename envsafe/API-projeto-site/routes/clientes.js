@@ -41,13 +41,16 @@ router.get('/atualizar/:idEmpresa', function(req, res, next) {
 
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
-    instrucaoSql = ` select idTerreno, nomeTerreno from terreno 
+    instrucaoSql = `select idTerreno, nomeTerreno from terreno 
       inner join cliente
       on fkCliente = idCliente
       where idCliente = ${idCliente};`;
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
-    instrucaoSql = `select top 1 temperatura, umidade, FORMAT(momento,'HH:mm:ss') as momento_grafico, fkcaminhao from leitura where fkcaminhao = ${idcaminhao} order by id desc`;
+    instrucaoSql = `select idTerreno, nomeTerreno from terreno 
+    inner join cliente
+    on fkCliente = idCliente
+    where idCliente = ${idCliente};`;
   } else {
     console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n");
   }

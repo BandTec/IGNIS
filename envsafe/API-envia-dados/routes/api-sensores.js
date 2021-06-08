@@ -35,8 +35,12 @@ router.get("/sendData", (request, response) => {
 		// Na variável abaixo, coloque o Insert que será executado no SQL Server
 		// salvo exceções, é igual a Workbench
 
-		instrucaoSql = `INSERT into dbo.dadoSensor (temperaturaSensor, umidadeSensor, fkSensor)
-		values (${temperature}, ${Humidity}, 9);`;
+		instrucaoSql = `INSERT into dbo.dadoSensor (temperaturaSensor, umidadeSensor,fkSensor) values (${temperature + 2}, ${Humidity + 8},6),
+		(${temperature + 5}, ${Humidity + 5},5),
+		(${temperature + 1}, ${Humidity + 3},4),
+		(${temperature}, ${Humidity + 1},3),
+		(${temperature + 4}, ${Humidity + 8},2),
+		(${temperature - 2}, ${Humidity - 10},1);`;
 	}
 
 	sequelize.query(instrucaoSql, {
