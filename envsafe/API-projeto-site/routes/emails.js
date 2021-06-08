@@ -21,7 +21,7 @@ router.post('/:email', function (req, res, next) {
     });
 
     var emailASerEnviado = {
-        to: 'support@ignis.atlassian.net',
+        to: 'help@ignis-envsafe.on.spiceworks.com',
         subject: email + ' - ' + assunto,
         text: categoria + '\n\n' + texto
     };
