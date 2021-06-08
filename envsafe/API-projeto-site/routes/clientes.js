@@ -47,8 +47,8 @@ router.get('/atualizar/:idEmpresa', function(req, res, next) {
       where idCliente = ${idCliente};`;
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
-    instrucaoSql = `select idTerreno, nomeTerreno from terreno 
-    inner join cliente
+    instrucaoSql = `select idTerreno, nomeTerreno from Terreno 
+    inner join Cliente
     on fkCliente = idCliente
     where idCliente = ${idCliente};`;
   } else {

@@ -1,4 +1,4 @@
-process.env.NODE_ENV = 'dev'; // ALTERE AQUI seu ambiente para 'dev' ou 'production'
+process.env.NODE_ENV = 'production'; // ALTERE AQUI seu ambiente para 'dev' ou 'production'
 
 var express = require('express');
 var path = require('path');
