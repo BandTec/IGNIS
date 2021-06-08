@@ -1,12 +1,10 @@
+  
 {
   "name": "IGNIS",
   "version": "1.0.1",
   "private": true,
   "scripts": {
     "start": "node ./API-projeto-site/bin/www",
-    "postinstall": "cd API-projeto-site && npm install"
-  },
-  "dependencies": {
-    "dotenv": "^10.0.0"
+	"postinstall": "cd API-projeto-site && npm install"
   }
 }

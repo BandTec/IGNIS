@@ -21,8 +21,7 @@ router.post('/:email', function (req, res, next) {
     });
 
     var emailASerEnviado = {
-        // from: 'حجر صغير@gmail.com',
-        to: process.env.EMAIL_USER,
+        to: 'support@ignis.atlassian.net',
         subject: email + ' - ' + assunto,
         text: categoria + '\n\n' + texto
     };

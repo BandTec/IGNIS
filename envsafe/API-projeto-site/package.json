@@ -15,6 +15,7 @@
     "leaflet": "*",
     "morgan": "~1.9.1",
     "mysql2": "^2.2.5",
+    "nodemailer": "^6.6.1",
     "nodemon": "^2.0.7",
     "sequelize": "^5.21.2",
     "tedious": "^6.6.0"
