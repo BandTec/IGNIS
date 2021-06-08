@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fale Conosco</title>
   <link rel="stylesheet" href="css/fale-conosco.css" />
-  <link rel="shortcut icon" href="img/logo-icon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
   <style type="text/css"></style>
@@ -15,7 +15,7 @@
 
 <body>
   <div class="header">
-    <img src="img/user.svg" alt="Foto Usuário" />
+    <img src="../img/user.svg" alt="Foto Usuário" />
     <ul class="nav">
       <a href="perfil.html">
         <li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li>
@@ -73,23 +73,6 @@
       }).then(res => {
         console.log(res.json)
       })
-
-      // const data = {
-      //   categoria: categoria,
-      //   assunto: assunto,
-      //   texto: texto,
-      //   email: sessionStorage.login_usuario_meuapp
-      // }
-      // var form = new FormData();
-      // form.append("json", JSON.stringify(data));
-
-      // fetch('/emails', {
-      //   method: 'post',
-      //   body: form
-      // }).then(res => {
-      //   console.log(res.json)
-      // })
-
     }
   </script>
 </body>

@@ -55,7 +55,7 @@ html::-webkit-scrollbar {
 }
 
 .box-graficos {
-    width: 80%;
+    width: 85%;
     margin: auto;
 }
 
@@ -66,15 +66,15 @@ html::-webkit-scrollbar {
     background-color: #6BD5B5;
     border-radius: 5px;
     overflow: auto;
-    width: 400px;
-    
+    width: 420px;   
+    cursor: pointer;
 }
 
 
 .container:hover {
     box-sizing: border-box;
     background-color: #7DFFD8;
-    border-left: 10px solid #066F4F;
+    border-left: 5px solid #066F4F;
 }
 
 

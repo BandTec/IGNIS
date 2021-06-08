@@ -41,6 +41,10 @@ function entrar() {
         sessionStorage.nome_usuario_meuapp = json.nomeUsuario;
         sessionStorage.setItem("idCliente", json.fkCliente)
 
+        const data = new Date();
+
+        sessionStorage.setItem("Dia", data)
+
         if(json.statusCliente == 0) {
           window.location.href = "negociacao.html";
         } else {
@@ -217,7 +221,7 @@ function atualizarUsuario() {
               <td>${resposta[i].cpfUsuario}</td>
               <td>${resposta[i].cargoUsuario}</td>
               <td>
-                <img src="img/delete.svg" onclick="deletarUsuario(${resposta[i].idUsuario})" />
+                <img src="../img/delete.svg" onclick="deletarUsuario(${resposta[i].idUsuario})" />
               </td>
             </tr>`;
         }

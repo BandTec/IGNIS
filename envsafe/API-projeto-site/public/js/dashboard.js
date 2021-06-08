@@ -1,5 +1,10 @@
 function atualizacaoPeriodica() {
     obterDadosporTerreno(6)
+    obterDadosporTerreno(5)
+    obterDadosporTerreno(4)
+    obterDadosporTerreno(3)
+    obterDadosporTerreno(2)
+    obterDadosporTerreno(1)
     setTimeout(atualizacaoPeriodica, 5000)
 }
 
@@ -15,8 +20,6 @@ function obterDadosporTerreno(idTerreno) {
 
                 console.log(resposta)
 
-                // aqui, após registro. use os nomes 
-                // dos atributos que vem no JSON 
                 var dados = {
                     temperatura: resposta.mediatemperatura,
                     umidade: resposta.mediaumidade
@@ -43,23 +46,18 @@ function alertar(temperatura, umidade, idTerreno) {
         ideal_temperatura: 28,
         min_umidade: 20,
         media_umidade: 36,
-        ideal_umidade: 37
+        ideal_umidade: 60
     };
 
     // zerar aviso de mensagem
     var imagem_situacao = '';
 
-    // comparando
-    if (temperatura > limites.max_temperatura && umidade <= limites.min_umidade) {
-        imagem_situacao = '../permissao_total/img/danger.svg';
-    }
-
-    if((temperatura <= limites.media_temperatura && temperatura > limites.ideal_temperatura) && (umidade <= limites.media_umidade && umidade > limites.min_umidade)) {
-        imagem_situacao = '../permissao_total/img/attention.svg'
-    }
-
-    if(temperatura <= limites.ideal_temperatura && umidade >= limites.ideal_umidade) {
-        imagem_situacao = '../permissao_total/img/excelente.svg'
+    if(temperatura <= limites.ideal_temperatura || umidade >= limites.ideal_umidade) {
+        imagem_situacao = '../img/excelente.svg'
+    } else if(temperatura >= limites.max_temperatura && umidade <= limites.min_umidade) {
+        imagem_situacao = '../img/danger.svg';
+    } else {
+        imagem_situacao = '../img/attention.svg'
     }
     
 
@@ -67,13 +65,17 @@ function alertar(temperatura, umidade, idTerreno) {
     var situacao_alterar
 
     if (idTerreno == 1) {
-        situacao_alterar = img_alerta
+        situacao_alterar = img_alerta1
     } else if (idTerreno == 2) {
         situacao_alterar = img_alerta2
     } else if (idTerreno == 3) {
         situacao_alterar = img_alerta3
-    } else if (idTerreno == 6) {
+    } else if (idTerreno == 4) {
         situacao_alterar = img_alerta4
+    } else if (idTerreno == 5) {
+        situacao_alterar = img_alerta5
+    } else if (idTerreno == 6) {
+        situacao_alterar = img_alerta6
     }
 
     // alterando
@@ -90,8 +92,8 @@ function atualizarTela(dados, idTerreno) {
 
     switch (idTerreno) {
         case 1:
-            div_temperatura_alterar = div_temperatura
-            div_umidade_alterar = div_umidade
+            div_temperatura_alterar = div_temperatura1
+            div_umidade_alterar = div_umidade1
             break;
         case 2:
             div_temperatura_alterar = div_temperatura2
@@ -101,9 +103,17 @@ function atualizarTela(dados, idTerreno) {
             div_temperatura_alterar = div_temperatura3
             div_umidade_alterar = div_umidade3
             break;
-        case 6:
+        case 4:
             div_temperatura_alterar = div_temperatura4
             div_umidade_alterar = div_umidade4
+            break;
+        case 5:
+            div_temperatura_alterar = div_temperatura5
+            div_umidade_alterar = div_umidade5
+            break;
+        case 6:
+            div_temperatura_alterar = div_temperatura6
+            div_umidade_alterar = div_umidade6
             break;
     }
 

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gráficos</title>
     <link rel="stylesheet" href="css/graficos.css" />
-    <link rel="shortcut icon" href="img/logo-icon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
@@ -15,7 +15,7 @@
   </head>
   <body onload="atualizacaoPeriodica()">
     <div class="header">
-      <img src="img/user.svg" alt="Foto Usuário" />
+      <img src="../img/user.svg" alt="Foto Usuário" />
       <ul class="nav">
         <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
         <li class="option"><b>Gráficos</b></li>
@@ -27,40 +27,17 @@
       </ul>
     </div>
     <div class="main">
-      <div class="box-graficos">
-        <a href="../../NODE5/index.html">
-          <div class="container">
-            <h2>Prq. Nacional de Monte Pascoal</h2>
-            <div class="data" id="div_temperatura">Temperatura sendo obtida...</div>
-            <div class="data" id="div_umidade">Umidade sendo obtida...</div>
-            <img id="img_alerta" alt="icon" />
-          </div>
-        </a>
-        <div class="container">
-          <h2>Prq. Serra do Ricardo Franco</h2>
-          <div class="data" id="div_temperatura2">Temperatura sendo obtida...</div>
-          <div class="data" id="div_umidade2">Umidade sendo obtida...</div>
-          <img id="img_alerta2" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. Nacional de Ilha Grande</h2>
-          <div class="data" id="div_temperatura3">Temperatura sendo obtida... </div>
-          <div class="data" id="div_umidade3">Umidade sendo obtida...</div>
-          <img id="img_alerta3" alt="icon" />
-        </div>
-        <div class="container">
-          <h2>Prq. Nacional da Serra Geral</h2>
-          <div class="data" id="div_temperatura4">Temperatura sendo obtida...</div>
-          <div class="data" id="div_umidade4">Umidade sendo obtida..</div>
-          <img id="img_alerta4" alt="icon"/>
-        </div>
+      <div class="box-graficos" id="id_box_graficos">
       </div>
     </div>
     <script src="../js/validacoes.js"></script>
     <script src="../js/dashboard.js"></script>
     <script src="../js/sendData.js"></script>
+    <script src="../js/terrenos.js"></script>
   </body>
 </html>
 <script>
   verificarAutenticacao()
+
+  atualizarTerrenos()
 </script>
