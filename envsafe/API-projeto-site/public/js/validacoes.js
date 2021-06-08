@@ -216,7 +216,7 @@ function atualizarUsuario() {
 
         for (let i = 0; i < resposta.length; i++) {
           tabela_usuarios.innerHTML += `<tr>
-              <td>${resposta[i].nivelPermissao == 1 ? "Total" : "Parcial"}</td>
+              <td>${resposta[i].nivelPermissao == '1' ? "Total" : "Parcial"}</td>
               <td>${resposta[i].nomeUsuario}</td>
               <td>${resposta[i].cpfUsuario}</td>
               <td>${resposta[i].cargoUsuario}</td>
