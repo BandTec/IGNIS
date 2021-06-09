@@ -14,11 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body onload="atualizacaoPeriodica()">
     <div class="header">
         <!--Topo-->
         <div class="container">
-            <p class="titulo" style="padding-top: 20px;"><span class="destaque"><b class="nome_usuario_html"></b>,</span>&nbsp;<span id="span_nome_terreno"></span></p>
+            <p class="titulo" style="padding-top: 20px;"><span class="destaque"><b
+                        class="nome_usuario_html"></b>,</span>&nbsp;<span id="span_nome_terreno"></span></p>
             <ul class="navbar">
                 <li><a href="grafico.html"><span class="destaque">Gráfico <span id="span_dia"></span></a></span></li>
             </ul>
@@ -51,8 +52,48 @@
 
 </html>
 <script>
+    let temperatura = [];
+    let umidade = [];
+    let terreno = sessionStorage.idTerreno
+
     verificarAutenticacao()
     atualizarDados()
+    function atualizacaoPeriodica() {
+        obterdados(terreno);
+        setTimeout(atualizacaoPeriodica, 3000);
+    }
+
+    function obterdados(terreno) {
+        //aguardar();
+        fetch(`/dadosSensor/ultimas/${terreno}`)
+            .then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        for (let pedrinho = 0; pedrinho < resposta.length; pedrinho++) {
+
+                            temperatura.push(resposta[pedrinho].temperatura)
+                            umidade.push(resposta[pedrinho].umidade)
+
+                        }
+                        
+                        console.log(temperatura)
+
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                    console.log(resposta)
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
+            });
+    }
+
+
 
     var element_umid = document.getElementById('chart_umid'); // canvas umidade
     var element_temp = document.getElementById('chart_temp'); // canvas temperatura
@@ -66,7 +107,7 @@
             datasets: [
                 {
                     label: "Umidade %",
-                    data: [27, 18, 25, 28, 24, 24, 40, 32, 44, 48, 24, 40],
+                    data: umidade,
                     borderWidth: 5,
                     borderColor: '#42B5ED'
                 }
@@ -79,7 +120,7 @@
                 text: "Umidade 2020",
                 position: 'top',
             },
-            axisY:{
+            axisY: {
                 labelFontWeight: "bold"
             },
             legend: {
@@ -104,7 +145,7 @@
                     }
                 }]
             },
-    
+
         }
     })
     Chart.defaults.global.defaultFontColor = "black";
@@ -119,7 +160,7 @@
             datasets: [
                 {
                     label: "Temperatura em °C",
-                    data: [27, 31, 27, 28, 25, 25, 22, 22, 25, 28, 37, 39],
+                    data: temperatura,
                     borderWidth: 5,
                     borderColor: '#FF5B14'
                 }

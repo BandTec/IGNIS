@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     let Terreno = sequelize.define('Terreno', {
         id: {
             field: 'idTerreno',
-            type: DataTypes.INTEGER,
+            type: DataTypes.INTEGER, 
             primaryKey: true,
             autoIncrement: true
         },

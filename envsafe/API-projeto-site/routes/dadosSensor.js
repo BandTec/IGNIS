@@ -5,11 +5,11 @@ var DadoSensor = require("../models").DadoSensor;
 var env = process.env.NODE_ENV || "development";
 
 /* Recuperar as últimas N leituras */
-router.get("/ultimas/:idcaminhao", function (req, res, next) {
+router.get("/ultimas/:terreno", function (req, res, next) {
   // quantas são as últimas leituras que quer? 7 está bom?
-  const limite_linhas = 7;
+  const limite_linhas = 12;
 
-  var idcaminhao = req.params.idcaminhao;
+  var terreno = req.params.terreno;
 
   console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 
@@ -17,24 +17,12 @@ router.get("/ultimas/:idcaminhao", function (req, res, next) {
 
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
-    instrucaoSql = `select 
-		temperatura, 
-		umidade, 
-		momento,
-		FORMAT(momento,'HH:mm:ss') as momento_grafico
-		from leitura
-		where fkcaminhao = ${idcaminhao}
-		order by id desc limit ${limite_linhas}`;
+    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor from dadoSensor 
+    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno};`
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
-    instrucaoSql = `select top ${limite_linhas} 
-		temperatura, 
-		umidade, 
-		momento,
-		FORMAT(momento,'HH:mm:ss') as momento_grafico
-		from leitura
-		where fkcaminhao = ${idcaminhao}
-		order by id desc`;
+    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor from dadoSensor 
+    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno};`
   } else {
     console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n");
   }
