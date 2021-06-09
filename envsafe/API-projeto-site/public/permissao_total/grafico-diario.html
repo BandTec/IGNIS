@@ -80,8 +80,7 @@
                             temperatura.push(resposta[pedrinho].temperatura)
                             umidade.push(resposta[pedrinho].umidade)
                             data = new Date(resposta[pedrinho].momento);
-                            momento.push(data.toLocaleDateString('pt-BR') + ' ' + data.toLocaleTimeString('pt-BR'))
-
+                            momento.push(data.toLocaleTimeString('pt-BR'))
 
                         }
                         chart_temp.update();
