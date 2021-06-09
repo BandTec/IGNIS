@@ -7,7 +7,7 @@ var env = process.env.NODE_ENV || "development";
 /* Recuperar as últimas N leituras */
 router.get("/ultimas/:terreno", function (req, res, next) {
   // quantas são as últimas leituras que quer? 7 está bom?
-  const limite_linhas = 6;
+  const limite_linhas = 1;
 
   var terreno = req.params.terreno;
 
@@ -18,11 +18,11 @@ router.get("/ultimas/:terreno", function (req, res, next) {
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
     instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento from dadoSensor 
-    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} limit ${limite_linhas};`
+    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} limit ${limite_linhas} desc;`
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
     instrucaoSql = `SELECT TOP ${limite_linhas} temperaturaSensor,umidadeSensor, momento from dadoSensor 
-    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} ;`
+    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} order by iddadoSensor desc;`
   } else {
     console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n");
   }
