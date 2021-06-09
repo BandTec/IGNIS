@@ -1,24 +1,28 @@
---ao encaminhar para tecnico e especialista relatar como foi encaminhado exemplo: abrir um chamado 
+﻿--ao encaminhar para tecnico e especialista relatar como foi encaminhado exemplo: abrir um chamado xxxxx
 
---muitas solicitações para o n3 
+--mudar o X para as siglas "T de Técnico" "E de Especialista" facilitar a visualização. xxxxxx 
 
---ter uma validacao do n2 para o n3 caso o n2 nao consiga resolver 
+--conversas entre n1, n2 e o n3, caso nao saiba fechar o chamado.xxxxxxxx
 
---n1 tenta resolver, SE NAO, passa para o n2, n2 tenta resolver, SE NAO, passa para o N3
+--"COM A REDE", "Há conexão .... " está invertido o sim/nao. xxxxxxx
 
---validacao pode ser a partir dos n1 n2 e n3 (support) 
---conversas entre n1, n2 e o n3, caso nao saiba fechar o chamado.
+--ter uma validacao do n2 para o n3 caso o n2 nao consiga resolver  xxxxxxxx
+
+--n1 tenta resolver, SE NAO, passa para o n2, n2 tenta resolver, SE NAO, passa para o N3 xxxxxxx
+
+--cliente nao sabe que precisa ligar para provedora...... "Problema fora do Escopo" xxxxxxx
+
+--muitas solicitações para o n3  xxxxxx
+
+--validacao pode ser a partir dos n1 n2 e n3 (support) xxxxxx
+
+--support fecha o chamado e "recomendar o cliente para ligar para a internet"  xxxxx
+
+------------------------------------------------------------------------------------------------------------------
 
 --sub processo ex, validacoes subprocesss algumas coisas que poderia rever
 
---"COM A REDE", "Há conexão .... " está invertido o sim/nao.
---support fecha o chamado e "recomendar o cliente para ligar para a internet" 
-
---cliente nao sabe que precisa ligar para provedora...... "Problema fora do Escopo"
-
-produto muito caro para ficar " sem acesso ". 
-
---mudar o X para as siglas "T de Técnico" "E de Especialista" facilitar a visualização. 
+produto muito caro para ficar " sem acesso ".
 
 -- todas ações COMUNICAR O CLIENTE........
 
