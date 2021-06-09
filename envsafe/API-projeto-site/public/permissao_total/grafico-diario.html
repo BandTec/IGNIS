@@ -28,13 +28,14 @@
 
     <div id="chart_box">
         <!-- grafico 1 -->
-        <div class="div_umid">
-            <canvas id="chart_umid"></canvas>
-        </div>
-        <!-- grafico 2 -->
         <div class="div_temp">
             <canvas id="chart_temp"></canvas>
         </div>
+        <!-- grafico 2 -->
+        <div class="div_umid">
+            <canvas id="chart_umid"></canvas>
+        </div>
+        
     </div>
 
     <!--botão-->
@@ -54,6 +55,7 @@
 <script>
     let temperatura = [];
     let umidade = [];
+    let momento = [];
     let terreno = sessionStorage.idTerreno
 
     verificarAutenticacao()
@@ -77,9 +79,13 @@
 
                             temperatura.push(resposta[pedrinho].temperatura)
                             umidade.push(resposta[pedrinho].umidade)
+                            data = new Date(resposta[pedrinho].momento);
+                            momento.push(data.toLocaleDateString('pt-BR') + ' ' + data.toLocaleTimeString('pt-BR'))
+
 
                         }
-                        
+                        chart_temp.update();
+                        chart_umid.update();
                         console.log(temperatura)
 
                     });
@@ -101,9 +107,7 @@
     var div_umid = new Chart(element_umid, {
         type: 'line',
         data: {
-            labels: ["Janeiro", "Fevereiro", "Março", "Abril",
-                "Maio", "Junho", "Julho", "Agosto", "Setembro",
-                "Outubro", "Novembro", "Dezembro"],
+            labels: momento,
             datasets: [
                 {
                     label: "Umidade %",
@@ -154,9 +158,7 @@
     var div_temp = new Chart(element_temp, {
         type: 'line',
         data: {
-            labels: ["Janeiro", "Fevereiro", "Março", "Abril",
-                "Maio", "Junho", "Julho", "Agosto", "Setembro",
-                "Outubro", "Novembro", "Dezembro"],
+            labels: momento,
             datasets: [
                 {
                     label: "Temperatura em °C",
