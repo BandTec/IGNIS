@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false
 		},
 		umidade: {
-			field: 'umidadeSensor',
+			field: 'umidadeSensor', 
 			type: DataTypes.FLOAT,
 			allowNull: false
 		},

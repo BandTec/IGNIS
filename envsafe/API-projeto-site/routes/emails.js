@@ -2,12 +2,16 @@ var express = require('express');
 var router = express.Router();
 var nodemailer = require("nodemailer");
 
-/* GET home page. */
+
+
 router.post('/:email', function (req, res, next) {
+
     const email= req.params.email
     const assunto= req.body.text_assunto
     const categoria= req.body.sel_opcao
     const texto = req.body.text_descricao
+    
+
     
     var remetente = nodemailer.createTransport({
         host: 'smtp.gmail.com',

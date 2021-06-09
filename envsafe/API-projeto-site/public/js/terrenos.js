@@ -34,6 +34,8 @@ function guardarIdTerreno(id_params, nome_params) {
   sessionStorage.removeItem("idTerreno");
   sessionStorage.removeItem("nomeTerreno");
 
+  sessionStorage.getItem("idTerreno")
+
   sessionStorage.setItem("idTerreno", id_params)
   sessionStorage.setItem("nomeTerreno", nome_params)
 
