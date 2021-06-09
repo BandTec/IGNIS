@@ -35,7 +35,7 @@
         <div class="data">
           <h3>Dashboard</h3>
           <p>
-            <span class="destaque" id="span_dia_semana"></span>&nbsp; <span id="span_data"></span></p>
+            <span class="destaque" id="span_dia_semana"></span>&nbsp;<span class="span_data"></span></p>
         </div>
       </div>
       <div class="container">
@@ -54,24 +54,14 @@
             <p>Edição</p>
           </div>
           <div class="box-item">
-            <img src="../img/invoice.svg" alt="" />
-            <h3>Faturas</h3>
-            <p>Próx: 15/05/2021</p>
-          </div>
-          <div class="box-item">
             <img src="../img/map.svg" alt="" />
             <h3>Áreas Monitoradas</h3>
-            <p>2000</p>
-          </div>
-          <div class="box-item">
-            <img src="../img/conversation.svg" alt="" />
-            <h3>Reuniões</h3>
-            <p>Próx: 30/05/2021</p>
+            <p id="total_areas"></p>
           </div>
           <div class="box-item">
             <img src="../img/newspaper.svg" alt="" />
             <h3>Notícias</h3>
-            <p>23/04/2021</p>
+            <p class="span_data">23/04/2021</p>
           </div>
         </div>
       </div>
@@ -80,7 +70,7 @@
   </body>
 </html>
 <script>
-  verificarAutenticacao()
+   verificarAutenticacao()
 
   var data = sessionStorage.getItem("Dia")
   var dia_semana;
@@ -113,5 +103,33 @@
 
   span_dia_semana.innerHTML = `${dia_semana}, `
 
-  span_data.innerHTML = data_final.toLocaleDateString('pt-BR')
+  let html_tag = Array.from(
+    document.getElementsByClassName("span_data")
+  );
+
+  html_tag.forEach((element) => {
+    element.innerHTML = data_final.toLocaleDateString('pt-BR');
+  });
+
+  areasMonitoradas()
+
+  function areasMonitoradas() {
+    fetch(`/clientes/terrenosTotal/${sessionStorage.getItem("idCliente")}`)
+      .then((resposta) => {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Terrenos Totais: ${JSON.stringify(resposta)}`);
+            total_areas.innerHTML = resposta[0].Total
+          });
+        } else {
+          console.error("Nenhum terreno encontrado ou erro na API");
+          console.log(resposta);
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados dos terrenos: ${error.message}`
+        );
+      });
+  }
 </script>

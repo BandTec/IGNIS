@@ -69,5 +69,40 @@ router.get('/atualizar/:idEmpresa', function(req, res, next) {
     });
 })
 
+router.get('/terrenosTotal/:idEmpresa', function(req, res, next) {
+
+  var idCliente = req.params.idEmpresa
+  
+  let instrucaoSql = "";
+
+  if (env == "dev") {
+    // abaixo, escreva o select de dados para o Workbench
+    instrucaoSql = `select count(nomeTerreno) as Total from terreno 
+      inner join cliente
+      on fkCliente = idCliente
+      where idCliente = ${idCliente};`;
+  } else if (env == "production") {
+    // abaixo, escreva o select de dados para o SQL Server
+    instrucaoSql = `select count(nomeTerreno) as Total from terreno 
+    inner join cliente
+    on fkCliente = idCliente
+    where idCliente = ${idCliente};`;
+  } else {
+    console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n");
+  }
+
+  console.log(instrucaoSql);
+
+  sequelize
+    .query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+    .then((resultado) => {
+      res.json(resultado);
+      console.log(resultado)
+    })
+    .catch((erro) => {
+      console.error(erro);
+      res.status(500).send(erro.message);
+    });
+})
 
 module.exports = router;
