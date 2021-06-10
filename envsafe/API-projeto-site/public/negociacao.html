@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,22 +9,20 @@
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="shortcut icon" href="img/logo-icon.svg" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
     <div class="header">
         <img src="img/user.svg" alt="Foto Usuário" />
         <ul class="nav">
-          <li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário </b></li>
-          <li>Gráficos</li>
-          <li>Mapa</li>
-          <li>Histórico</li>
-          <li>Cadastro de Usuário</li>
-          <li>Fale Conosco</li>
-          <li class="option" onclick="sair()">Sair</li>
+            <li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário </b></li>
+            <li>Gráficos</li>
+            <li>Mapa</li>
+            <li>Histórico</li>
+            <li>Cadastro de Usuário</li>
+            <li>Fale Conosco</li>
+            <li class="option" onclick="sair()">Sair</li>
         </ul>
     </div>
     <div class="main">
@@ -32,7 +31,9 @@
                 <h3>
                     Dashboard
                 </h3>
-                <p><span class="destaque">Sexta,</span> 23 de Abril, 2021</p>
+                <p>
+                    <span class="destaque" id="span_dia_semana"></span>&nbsp;<span class="span_data"></span>
+                </p>
             </div>
         </div>
         <div class="container">
@@ -44,16 +45,55 @@
         <div class="container">
             <div class="box">
                 <div class="box-item">
-                   Negociação em andamento, aguarde os próximos contatos!
-                   <i>Equipe IGNIS</i> 
+                    Negociação em andamento, aguarde os próximos contatos!
+                    <i>Equipe IGNIS</i>
                 </div>
             </div>
         </div>
 
     </div>
     <script src="../js/validacoes.js"></script>
-  </body>
+</body>
+
 </html>
 <script>
- verificarAutenticacao()
+    verificarAutenticacao()
+
+    var data = sessionStorage.getItem("Dia")
+    var dia_semana;
+
+    var data_final = new Date(data)
+
+    switch (data_final.getDay()) {
+        case 1:
+            dia_semana = "Segunda"
+            break;
+        case 2:
+            dia_semana = "Terça"
+            break;
+        case 3:
+            dia_semana = "Quarta"
+            break;
+        case 4:
+            dia_semana = "Quinta"
+            break;
+        case 5:
+            dia_semana = "Sexta"
+            break;
+        case 6:
+            dia_semana = "Sábado"
+            break;
+        case 0:
+            dia_semana = "Domingo"
+            break;
+    }
+
+    span_dia_semana.innerHTML = `${dia_semana}, `
+    let html_tag = Array.from(
+        document.getElementsByClassName("span_data")
+    );
+
+    html_tag.forEach((element) => {
+        element.innerHTML = data_final.toLocaleDateString('pt-BR');
+    });
 </script>

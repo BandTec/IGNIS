@@ -4,12 +4,12 @@ var nodemailer = require("nodemailer");
 
 
 
-router.post('/:email', function (req, res, next) {
+router.post('/:1', function (req, res, next) {
 
-    const email= req.params.email
-    const assunto= req.body.text_assunto
-    const categoria= req.body.sel_opcao
-    const texto = req.body.text_descricao
+    const email= req.body.ipt_Email
+    const assunto= req.body.ipt_Assunto
+    const nome= req.body.ipt_Nome
+    const texto = req.body.ipt_mensagem
     // const anexo = req.body.ipt_anexo
     
     var remetente = nodemailer.createTransport({
@@ -23,9 +23,9 @@ router.post('/:email', function (req, res, next) {
         }
     });
     var emailASerEnviado = {
-        to: 'help@ignis-envsafe.on.spiceworks.com',
-        subject: email + ' - ' + assunto,
-        text: categoria + '\n\n' + texto,
+        to: process.env.EMAIL_USER,
+        subject: nome + ' - ' + assunto,
+        text: categoria + '\n\n' + texto + '\n\n' + email,
         // attachments: [
         //     {   // file on disk as an attachment
         //         filename: 'text3.txt',

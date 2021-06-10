@@ -255,18 +255,18 @@
             <h2>Entre em contato</h2>
             <div class="stroke"></div>
           </div>
-          <form action="">
-            <input placeholder="Nome" type="text" />
-            <input placeholder="Email" type="text" />
-            <input placeholder="Assunto" type="text" />
-            <textarea
+          <form id="enviaemail">
+            <input name="ipt_Nome" placeholder="Nome" type="text" />
+            <input name="ipt_Email" placeholder="Email" type="text" />
+            <input name="ipt_Assunto" placeholder="Assunto" type="text" />
+            <textarea name="ipt_mensagem"
               placeholder="Mensagem"
               name=""
               id=""
               cols="30"
               rows="10"
             ></textarea>
-            <input type="submit" value="enviar" />
+            <input type="submit" onclick="sendEmail()" value="enviar" />
           </form>
         </div>
         <div class="map-container">
@@ -287,3 +287,15 @@
     <script src="./js/budget.js"></script>
   </body>
 </html>
+<script>
+function sendEmail() {
+
+  var formulario = new URLSearchParams(new FormData(enviaemail));
+  fetch(`/emailinstitucional/1`, {
+    method: "POST",
+    body: formulario,
+  }).then(res => {
+    console.log(res.json)
+  })
+}
+</script>
