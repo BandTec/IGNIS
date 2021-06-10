@@ -29,7 +29,6 @@ function atualizarTerrenos() {
         );
       });
 }
-
 function atualizarTerrenosAnual() {
   fetch(`/clientes/atualizar/${sessionStorage.getItem("idCliente")}`)
       .then((resposta) => {
@@ -37,6 +36,16 @@ function atualizarTerrenosAnual() {
           resposta.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
+<<<<<<< HEAD
+function atualizarTerrenosAnual() {
+  fetch(`/clientes/atualizar/${sessionStorage.getItem("idCliente")}`)
+      .then((resposta) => {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+=======
+>>>>>>> 06184a3b4bac041f9819e4a4d180e07c8a30b5b1
             for(let i = 0; i < resposta.length; i++) {
               console.log(resposta[i].nomeTerreno)
               id_box_graficos.innerHTML += `
@@ -58,7 +67,10 @@ function atualizarTerrenosAnual() {
         );
       });
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 06184a3b4bac041f9819e4a4d180e07c8a30b5b1
 function guardarIdTerreno(id_params, nome_params) {
   sessionStorage.removeItem("idTerreno");
   sessionStorage.removeItem("nomeTerreno");
