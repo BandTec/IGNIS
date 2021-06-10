@@ -10,6 +10,7 @@ var usuariosRouter = require('./routes/usuarios');
 var ClientesRouter = require('./routes/clientes');
 var dadosSensorRouter = require('./routes/dadosSensor')
 var emailsRouter = require("./routes/emails");
+var emailsRouter = require("./routes/emailinstitucional");
 
 var app = express();
 
@@ -24,5 +25,6 @@ app.use('/usuarios', usuariosRouter);
 app.use('/dadosSensor', dadosSensorRouter);
 app.use('/clientes', ClientesRouter);
 app.use('/emails', emailsRouter);
+app.use('/emailinstitucional', emailsRouter);
 
 module.exports = app;

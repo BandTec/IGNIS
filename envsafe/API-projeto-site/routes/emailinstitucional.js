@@ -25,7 +25,7 @@ router.post('/:1', function (req, res, next) {
     var emailASerEnviado = {
         to: process.env.EMAIL_USER,
         subject: nome + ' - ' + assunto,
-        text: categoria + '\n\n' + texto + '\n\n' + email,
+        text: texto + '\n\n' + email,
         // attachments: [
         //     {   // file on disk as an attachment
         //         filename: 'text3.txt',
