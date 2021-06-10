@@ -17,7 +17,7 @@ router.get("/ultimas/:terreno", function (req, res, next) {
 
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
-    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento from dadoSensor 
+    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento, avg from dadoSensor 
     inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} limit ${limite_linhas} desc;`
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
@@ -41,7 +41,43 @@ router.get("/ultimas/:terreno", function (req, res, next) {
       res.status(500).send(erro.message);
     });
 });
+router.get("/ano/:valores", function (req, res, next) {
+  // quantas são as últimas leituras que quer? 7 está bom?
+  const limite_linhas = 1;
 
+  var valores = req.params.valores;
+  console.log('Presta atencaooooooooo ',valores)
+  console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
+
+  let instrucaoSql = "";
+
+  if (env == "dev") {
+    // abaixo, escreva o select de dados para o Workbench
+    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento, avg from dadoSensor 
+    inner join sensor on fkSensor = idSensor where fkTerreno = ${valores[0]} limit ${limite_linhas} desc;`
+  } else if (env == "production") {
+    // abaixo, escreva o select de dados para o SQL Server
+    instrucaoSql = `SELECT avg(temperaturaSensor) as media from dadoSensor 
+    inner join sensor on fkSensor = idSensor where fkTerreno ${valores};`
+
+  } else {
+    console.log("\n\n\n\nVERIFIQUE O VALOR DE LINHA 1 EM APP.JS!\n\n\n\n");
+  }
+
+  sequelize
+    .query(instrucaoSql, {
+      model: DadoSensor,
+      mapToModel: true,
+    })
+    .then((resultado) => {
+      console.log(`Encontrados: ${resultado.length}`);
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.error(erro);
+      res.status(500).send(erro.message);
+    });
+});
 router.get("/pegardados/:idTerreno", function (req, res, next) {
   console.log("Recuperando caminhões");
 
@@ -109,6 +145,7 @@ router.get("/dadosMapa", function (req, res, next) {
       res.status(500).send(erro.message);
     });
 });
+
 
 // // estatísticas (max, min, média, mediana, quartis etc)
 // router.get("/estatisticas", function (req, res, next) {

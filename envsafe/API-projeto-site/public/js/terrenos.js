@@ -29,7 +29,34 @@ function atualizarTerrenos() {
         );
       });
 }
+function atualizarTerrenosAnual() {
+  fetch(`/clientes/atualizar/${sessionStorage.getItem("idCliente")}`)
+      .then((resposta) => {
+        if (resposta.ok) {
+          resposta.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
 
+            for(let i = 0; i < resposta.length; i++) {
+              console.log(resposta[i].nomeTerreno)
+              id_box_graficos.innerHTML += `
+              <span onclick="guardarIdTerreno(${i+1}, '${resposta[i].nomeTerreno}')">
+                <div class="container">
+                  <h2>${resposta[i].nomeTerreno}</h2>
+                </div>
+              </span>`
+            }
+          });
+        } else {
+          console.error("Nenhum terreno encontrado ou erro na API");
+          console.log(resposta);
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados dos terrenos: ${error.message}`
+        );
+      });
+}
 function guardarIdTerreno(id_params, nome_params) {
   sessionStorage.removeItem("idTerreno");
   sessionStorage.removeItem("nomeTerreno");
