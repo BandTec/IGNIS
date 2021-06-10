@@ -48,6 +48,7 @@ a{
   margin: auto;
   display: flex;
   justify-content: center;
+  margin-top: 5%;
 }
 
 /* Gráfico Umidade  */
@@ -84,4 +85,9 @@ a{
   display: flex;
   position: fixed;
   bottom: 0;
+}
+
+.imagens{
+  bottom: 20%;
+  position: absolute;
 }

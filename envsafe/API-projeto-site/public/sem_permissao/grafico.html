@@ -10,27 +10,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body> 
     <div class="header">
         <img src="../img/user.svg" alt="Foto Usuário">
             <ul class="nav">
                 <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
                 <li class="option"><b>Gráficos</b></li>
                 <a href="mapa.html"><li class="option">Mapa</li></a>
-                <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
+                <a href="graficos-anuais.html"><li class="option">Histórico</li></a>
                 <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
                 <li class="option" onclick="sair()">Sair</li>
             </ul>
     </div>
     <div class="main">
-        <div class="box-graficos" id="id_box_graficos">
-        </div>
+      <div class="box-graficos" id="id_box_graficos">
+      </div>
     </div>
     <script src="../js/validacoes.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/sendData.js"></script>
     <script src="../js/terrenos.js"></script>
-</body>
+  </body>
 </html>
 <script>
-    verificarAutenticacao()
-    atualizarTerrenos()
+  verificarAutenticacao()
+
+  atualizarTerrenos()
 </script>

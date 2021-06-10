@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gráficos</title>
+    <title>Historico</title>
     <!--Link para código do ChartsJS-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="css/grafico-diario.css">
@@ -14,14 +14,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body onload="atualizacaoPeriodica1()">
+<body>
     <div class="header">
         <!--Topo-->
         <div class="container">
             <p class="titulo" style="padding-top: 20px;"><span class="destaque"><b
                         class="nome_usuario_html"></b>,</span>&nbsp;<span id="span_nome_terreno"></span></p>
             <ul class="navbar">
-                <li><a href="grafico.html"><span class="destaque">Gráfico <span id="span_dia"></span></a></span></li>
+                <li><a href="graficos-anuais.html"><span class="destaque">Gráfico <span id="span_dia"></span></a></span></li>
             </ul>
         </div>
     </div>
@@ -44,12 +44,12 @@
 
     <div class="saiba-mais">
         <div class="container">
-            <button onclick="window.location.href='grafico.html'">Voltar ao dashboard</button>
+            <button onclick="window.location.href='graficos-anuais.html'">Voltar ao dashboard</button>
         </div>
     </div>
     <script src="../js/validacoes.js"></script>
     <script src="../js/dashboard.js"></script>
-    <script src="../js/sendData.js"></script>
+    <!-- <script src="../js/sendData.js"></script> -->
     <script src="../js/terrenos.js"></script>
 </body>
 
@@ -59,6 +59,8 @@
     let umidade = [];
     let momento = [];
     let terreno = sessionStorage.idTerreno
+    let ano;
+    let valores = [];
     const limites = {
         max_temperatura: 36,
         media_temperatura: 35,
@@ -70,63 +72,57 @@
 
     verificarAutenticacao()
     atualizarDados()
-    function atualizacaoPeriodica1() {
-        obterdados(terreno);
-        setTimeout(atualizacaoPeriodica1, 3000);
-    }
 
-    function obterdados(terreno) {
+    for (let contador = 1; contador < 13; contador++) {
+        valores = []
+        let datahoje = sessionStorage.getItem("Dia");
+        var data1 = new Date(datahoje)
+        ano = data1.getFullYear()
+
+        console.log(ano)
+        if (contador <= 9) {
+            valores = ` = ${terreno} and momento >= '${ano}-0${contador}-01' and momento <= '${ano}-0${contador}-28'`
+        }
+        else {
+            valores = ` = ${terreno} and momento >= '${ano}-${contador}-01' and momento <= '${ano}-${contador}-28'`
+        }
+        console.log("Olha os valores", valores, 'valor looping', contador)
         //aguardar();
-        fetch(`/dadosSensor/ultimas/${terreno}`)
+        fetch(`/dadosSensor/ano/${valores}`)
             .then(resposta => {
 
                 if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
+                    resposta.json().then(function (json) {
 
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(`Dados recebidos: ${json[0].media}`);
                         console.log(temperatura.length)
 
-                        if (temperatura.length >= 7) {
-                            temperatura.shift()
-                            momento.shift()
+                        if (json[0].mediatemp != null) {
+                            temperatura.push(json[0].mediatemp)
+                        } else {
+                            temperatura.push(0)
+                        }
+                        
+                        if (json[0].mediaumi != null) {
+                            umidade.push(json[0].mediaumi)
+                        } else {
+                            umidade.push(0)
                         }
 
-                        if (temperatura.length >= 7) {
-                            umidade.shift()
-                            momento.shift()
-                        }
-
-                        for (let pedrinho = 0; pedrinho < resposta.length; pedrinho++) {
-
-                            temperatura.push(resposta[pedrinho].temperatura)
-                            umidade.push(resposta[pedrinho].umidade)
-                            data = new Date(resposta[pedrinho].momento);
-                            momento.push(data.toLocaleTimeString('pt-BR'))
-
-                            div_umid.update()
-                            div_temp.update()
-
-                            img_alerta.innerHTML = '';
-
-                            if (resposta[pedrinho].umidade <= limites.ideal_temperatura || resposta[pedrinho].umidade >= limites.ideal_umidade) {
-                                img_alerta.innerHTML = '<img alt="icon" src="../img/excelente.svg" />';
-                            } else if (temperatura >= limites.max_temperatura && umidade <= limites.min_umidade) {
-                                img_alerta.innerHTML = '<img alt="icon" src="../img/danger.svg" />';
-                            } else {
-                                img_alerta.innerHTML = '<img alt="icon" src="../img/attention.svg" />';
-                            }
-                        }
-                        console.log(temperatura)
+                        div_umid.update()
+                        div_temp.update()
+                        console.log("aqui a mediaaaaaaaa ",  temperatura)
 
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
-                    console.log(resposta)
+                    console.log('Uma resposta', resposta)
                 }
             })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
             });
+
     }
 
 
@@ -135,15 +131,16 @@
     var element_temp = document.getElementById('chart_temp'); // canvas temperatura
     // Gráfico 1 Umidade 
     var div_umid = new Chart(element_umid, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: momento,
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [
                 {
                     label: "Umidade %",
                     data: umidade,
                     borderWidth: 5,
-                    borderColor: '#42B5ED'
+                    borderColor: '#42B5ED',
+                    backgroundColor: '#42B5ED'
                 }
             ]
         },
@@ -151,7 +148,7 @@
             title: {
                 display: true,
                 fontSize: 26,
-                text: "Umidade 2020",
+                text: "Umidade " + ano,
                 position: 'top',
             },
             axisY: {
@@ -186,15 +183,16 @@
 
     // Gráfico 2 Temperatura  
     var div_temp = new Chart(element_temp, {
-        type: 'line',
+        type: 'bar',
         data: {
-            labels: momento,
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [
                 {
                     label: "Temperatura em °C",
                     data: temperatura,
                     borderWidth: 5,
-                    borderColor: '#FF5B14'
+                    borderColor: '#FF5B14',
+                    backgroundColor: '#FF5B14'
                 }
             ]
         },
@@ -208,7 +206,7 @@
                 // tamanho do texto
                 fontSize: 26,
                 // texto no titulo
-                text: "Temperatura 2020",
+                text: "Temperatura " + ano,
                 // onde? right? left? top?
                 position: 'top',
             },
