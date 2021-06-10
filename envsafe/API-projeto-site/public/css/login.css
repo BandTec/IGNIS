@@ -158,3 +158,15 @@ a {
   display: flex;
   justify-content: center;
 }
+
+#error{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin: auto;
+  font-size: 1rem;
+  color: red;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px #000000a1;
+}

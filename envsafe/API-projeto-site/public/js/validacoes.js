@@ -60,6 +60,7 @@ function entrar() {
 
       resposta.text().then((texto) => {
         console.error(texto);
+        error.innerHTML = texto;
       });
     }
   });
