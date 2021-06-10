@@ -17,8 +17,8 @@ router.get("/ultimas/:terreno", function (req, res, next) {
 
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
-    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento, avg from dadoSensor 
-    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} limit ${limite_linhas} desc;`
+    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento from dadoSensor 
+    inner join sensor on fkSensor = idSensor where fkTerreno = ${terreno} order by iddadoSensor desc limit ${limite_linhas};`
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
     instrucaoSql = `SELECT TOP ${limite_linhas} temperaturaSensor,umidadeSensor, momento from dadoSensor 
@@ -54,8 +54,8 @@ router.get("/ano/:valores", function (req, res, next) {
 
   if (env == "dev") {
     // abaixo, escreva o select de dados para o Workbench
-    instrucaoSql = `SELECT temperaturaSensor,umidadeSensor, momento, avg from dadoSensor 
-    inner join sensor on fkSensor = idSensor where fkTerreno = ${valores[0]} limit ${limite_linhas} desc;`
+    instrucaoSql = `SELECT avg(temperaturaSensor) as mediatemp, avg(umidadeSensor) as mediaumi from dadoSensor 
+    inner join sensor on fkSensor = idSensor where fkTerreno ${valores}`
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
     instrucaoSql = `SELECT avg(temperaturaSensor) as mediatemp, avg(umidadeSensor) as mediaumi from dadoSensor 
