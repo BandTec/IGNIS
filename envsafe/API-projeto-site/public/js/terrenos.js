@@ -29,6 +29,7 @@ function atualizarTerrenos() {
         );
       });
 }
+
 function atualizarTerrenosAnual() {
   fetch(`/clientes/atualizar/${sessionStorage.getItem("idCliente")}`)
       .then((resposta) => {
@@ -39,7 +40,7 @@ function atualizarTerrenosAnual() {
             for(let i = 0; i < resposta.length; i++) {
               console.log(resposta[i].nomeTerreno)
               id_box_graficos.innerHTML += `
-              <span onclick="guardarIdTerreno(${i+1}, '${resposta[i].nomeTerreno}')">
+              <span onclick="guardarIdTerrenoAnual(${i+1}, '${resposta[i].nomeTerreno}')">
                 <div class="container">
                   <h2>${resposta[i].nomeTerreno}</h2>
                 </div>
@@ -68,6 +69,18 @@ function guardarIdTerreno(id_params, nome_params) {
   sessionStorage.setItem("nomeTerreno", nome_params)
 
   window.location.href = "grafico-diario.html"
+}
+
+function guardarIdTerrenoAnual(id_params, nome_params) {
+  sessionStorage.removeItem("idTerreno");
+  sessionStorage.removeItem("nomeTerreno");
+
+  sessionStorage.getItem("idTerreno")
+
+  sessionStorage.setItem("idTerreno", id_params)
+  sessionStorage.setItem("nomeTerreno", nome_params)
+
+  window.location.href = "grafico-anual.html"
 }
 
 function atualizarDados() {
