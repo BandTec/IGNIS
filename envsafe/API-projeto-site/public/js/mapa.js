@@ -97,4 +97,4 @@
 
   setInterval(() => {
     getData();
-  }, 6000)
+  }, 5000)
