@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div id="chart_box">
+    <div id="chart_box" class="">
         <!-- grafico 1 -->
         <div class="div_temp">
             <canvas id="chart_temp"></canvas>
@@ -35,14 +35,16 @@
         <div class="div_umid">
             <canvas id="chart_umid"></canvas>
         </div>
-
+        <br>
+        <div class="imagens" id="img_alerta">
+        </div>
     </div>
 
     <!--botão-->
 
     <div class="saiba-mais">
         <div class="container">
-            <button>Saber mais</button>
+            <button onclick="window.location.href='grafico.html'">Voltar ao dashboard</button>
         </div>
     </div>
     <script src="../js/validacoes.js"></script>
@@ -57,6 +59,14 @@
     let umidade = [];
     let momento = [];
     let terreno = sessionStorage.idTerreno
+    const limites = {
+        max_temperatura: 36,
+        media_temperatura: 35,
+        ideal_temperatura: 28,
+        min_umidade: 20,
+        media_umidade: 25,
+        ideal_umidade: 37
+    };
 
     verificarAutenticacao()
     atualizarDados()
@@ -96,7 +106,15 @@
                             div_umid.update()
                             div_temp.update()
 
+                            img_alerta.innerHTML = '';
 
+                            if (resposta[pedrinho].umidade <= limites.ideal_temperatura || resposta[pedrinho].umidade >= limites.ideal_umidade) {
+                                img_alerta.innerHTML = '<img alt="icon" src="../img/excelente.svg" />';
+                            } else if (temperatura >= limites.max_temperatura && umidade <= limites.min_umidade) {
+                                img_alerta.innerHTML = '<img alt="icon" src="../img/danger.svg" />';
+                            } else {
+                                img_alerta.innerHTML = '<img alt="icon" src="../img/attention.svg" />';
+                            }
                         }
                         console.log(temperatura)
 
