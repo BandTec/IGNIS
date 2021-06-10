@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notícias relacionadas</title>
+    <link rel="stylesheet" href="css/noticias.css" />
+    <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="atualizacaoPeriodica()">
+    <div class="header">
+      <img src="../img/user.svg" alt="Foto Usuário" />
+      <ul class="nav">
+        <a href="perfil.html"><li class="username">Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário</b></li></a>
+        <li class="option">Gráficos</li>
+        <a href="mapa.html"><li class="option">Mapa</li></a>
+        <a href="graficos-anuais.html"><li class="option">Gráficos Anuais</li></a>
+        <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
+        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
+        <li class="option" onclick="sair()">Sair</li>
+      </ul>
+    </div>
+    <div class="main">
+      <div class="box-graficos" id="id_box_graficos"></div>
+    </div>
+    <script src="../js/validacoes.js"></script>
+  </body>
+</html>
+<script>
+  verificarAutenticacao();
+
+  (async () => {
+    const container = document.getElementById('id_box_graficos');
+    container.innerHTML = '<h3 style="text-align: center">Buscando notícias...<h3>';
+
+    const response = await fetch('https://newsapi.org/v2/everything?q=incêndio&language=pt', {
+      method: 'GET',
+      headers: {
+        'Authorization': 'bf27d2e31ab24eb6b2ba56338cb0f831'
+      }
+    });
+    const json = await response.json();
+
+    container.innerHTML = '';
+    for (let i = 0; i < json.articles.length; i++) {
+
+      const data = new Date(json.articles[i].publishedAt);
+      const strData = `${data.toLocaleDateString('pt-BR')} - ${data.toLocaleTimeString('pt-BR')}`;
+
+      container.innerHTML += `
+        <div class="container">
+          <img class="img-noticia" src="${json.articles[i].urlToImage}">
+          <h2>${json.articles[i].title}</h2>
+          <div class="data">${json.articles[i].description}</div>
+          <div id="fonte" class="fonte">
+            Fonte: ${(json.articles[i].source.name).toLowerCase()} | ${strData}
+          </div>
+        </div>`;
+    }
+
+  })();
+</script>

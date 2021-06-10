@@ -96,3 +96,8 @@ body {
 .box-item img {
     height: 50px;
 }
+
+a {
+    text-decoration: none;
+    color: #000;
+}
