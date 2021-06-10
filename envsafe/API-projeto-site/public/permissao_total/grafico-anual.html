@@ -21,7 +21,8 @@
             <p class="titulo" style="padding-top: 20px;"><span class="destaque"><b
                         class="nome_usuario_html"></b>,</span>&nbsp;<span id="span_nome_terreno"></span></p>
             <ul class="navbar">
-                <li><a href="graficos-anuais.html"><span class="destaque">Gráfico <span id="span_dia"></span></a></span></li>
+                <li><a href="graficos-anuais.html"><span class="destaque">Gráfico <span id="span_dia"></span></a></span>
+                </li>
             </ul>
         </div>
     </div>
@@ -61,6 +62,10 @@
     let terreno = sessionStorage.idTerreno
     let ano;
     let valores = [];
+    let datahoje = sessionStorage.getItem("Dia");
+    var data1 = new Date(datahoje)
+    ano = data1.getFullYear()
+    mes = data1.getMonth()
     const limites = {
         max_temperatura: 36,
         media_temperatura: 35,
@@ -73,11 +78,9 @@
     verificarAutenticacao()
     atualizarDados()
 
-    for (let contador = 1; contador < 13; contador++) {
+    for (let contador = 1; contador < mes+1; contador++) {
         valores = []
-        let datahoje = sessionStorage.getItem("Dia");
-        var data1 = new Date(datahoje)
-        ano = data1.getFullYear()
+
 
         console.log(ano)
         if (contador <= 9) {
@@ -102,7 +105,7 @@
                         } else {
                             temperatura.push(0)
                         }
-                        
+
                         if (json[0].mediaumi != null) {
                             umidade.push(json[0].mediaumi)
                         } else {
@@ -111,7 +114,7 @@
 
                         div_umid.update()
                         div_temp.update()
-                        console.log("aqui a mediaaaaaaaa ",  temperatura)
+                        console.log("aqui a mediaaaaaaaa ", temperatura)
 
                     });
                 } else {
