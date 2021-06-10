@@ -45,8 +45,8 @@ function alertar(temperatura, umidade, idTerreno) {
         media_temperatura: 35,
         ideal_temperatura: 28,
         min_umidade: 20,
-        media_umidade: 36,
-        ideal_umidade: 60
+        media_umidade: 25,
+        ideal_umidade: 37
     };
 
     // zerar aviso de mensagem

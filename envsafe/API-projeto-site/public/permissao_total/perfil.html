@@ -1,50 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nome de Usuário || Perfil</title>
-  <link rel="stylesheet" href="css/perfil.css" />
-  <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <div class="header">
-    <img src="../img/user.svg" alt="Foto Usuário" />
-    <ul class="nav">
-      <li class="username">
-        Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário </b>
-      </li>
-      <a href="grafico.html">
-        <li class="option">Gráficos</li>
-      </a>
-      <a href="mapa.html">
-        <li class="option">Mapa</li>
-      </a>
-      <a href="graficos-anuais.html">
-        <li class="option">Gráficos Anuais</li>
-      </a>
-      <a href="cadastro.html">
-        <li class="option">Cadastro de Usuário</li>
-      </a>
-      <a href="fale-conosco.html">
-        <li class="option">Fale Conosco</li>
-      </a>
-      <li class="option" onclick="sair()">Sair</li>
-    </ul>
-  </div>
-  <div class="main">
-    <div class="container">
-      <div class="data">
-        <h3>Dashboard</h3>
-        <p>
-          <span class="destaque" id="span_dia_semana"></span>&nbsp;<span class="span_data"></span>
-        </p>
-      </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nome de Usuário || Perfil</title>
+    <link rel="stylesheet" href="css/perfil.css" />
+    <link rel="shortcut icon" href="../img/logo-icon.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <img src="../img/user.svg" alt="Foto Usuário" />
+      <ul class="nav">
+        <li class="username">
+          Olá,&nbsp;<b class="nome_usuario_html"> Nome de Usuário </b>
+        </li>
+        <a href="grafico.html"><li class="option">Gráficos</li></a>
+        <a href="mapa.html"><li class="option">Mapa</li></a>
+        <a href="graficos-anuais.html"
+          ><li class="option">Histórico</li></a
+        >
+        <a href="cadastro.html"><li class="option">Cadastro de Usuário</li></a>
+        <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
+        <li class="option" onclick="sair()">Sair</li>
+      </ul>
     </div>
     <div class="container">
       <div class="boas-vindas">

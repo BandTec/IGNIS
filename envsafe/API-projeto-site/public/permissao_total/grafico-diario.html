@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
-<body onload="atualizacaoPeriodica()">
+<body onload="atualizacaoPeriodica1()">
     <div class="header">
         <!--Topo-->
         <div class="container">
@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <div id="chart_box">
+    <div id="chart_box" class="">
         <!-- grafico 1 -->
         <div class="div_temp">
             <canvas id="chart_temp"></canvas>
@@ -35,14 +35,16 @@
         <div class="div_umid">
             <canvas id="chart_umid"></canvas>
         </div>
-        
+        <br>
+        <div class="imagens" id="img_alerta">
+        </div>
     </div>
 
     <!--botão-->
 
     <div class="saiba-mais">
         <div class="container">
-            <button>Saber mais</button>
+            <button onclick="window.location.href='grafico.html'">Voltar ao dashboard</button>
         </div>
     </div>
     <script src="../js/validacoes.js"></script>
@@ -57,12 +59,20 @@
     let umidade = [];
     let momento = [];
     let terreno = sessionStorage.idTerreno
+    const limites = {
+        max_temperatura: 36,
+        media_temperatura: 35,
+        ideal_temperatura: 28,
+        min_umidade: 20,
+        media_umidade: 25,
+        ideal_umidade: 37
+    };
 
     verificarAutenticacao()
     atualizarDados()
-    function atualizacaoPeriodica() {
+    function atualizacaoPeriodica1() {
         obterdados(terreno);
-        setTimeout(atualizacaoPeriodica, 3000);
+        setTimeout(atualizacaoPeriodica1, 3000);
     }
 
     function obterdados(terreno) {
@@ -74,6 +84,17 @@
                     resposta.json().then(function (resposta) {
 
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(temperatura.length)
+
+                        if (temperatura.length >= 7) {
+                            temperatura.shift()
+                            momento.shift()
+                        }
+
+                        if (temperatura.length >= 7) {
+                            umidade.shift()
+                            momento.shift()
+                        }
 
                         for (let pedrinho = 0; pedrinho < resposta.length; pedrinho++) {
 
@@ -82,9 +103,19 @@
                             data = new Date(resposta[pedrinho].momento);
                             momento.push(data.toLocaleTimeString('pt-BR'))
 
+                            div_umid.update()
+                            div_temp.update()
+
+                            img_alerta.innerHTML = '';
+
+                            if (resposta[pedrinho].umidade <= limites.ideal_temperatura || resposta[pedrinho].umidade >= limites.ideal_umidade) {
+                                img_alerta.innerHTML = '<img alt="icon" src="../img/excelente.svg" />';
+                            } else if (temperatura >= limites.max_temperatura && umidade <= limites.min_umidade) {
+                                img_alerta.innerHTML = '<img alt="icon" src="../img/danger.svg" />';
+                            } else {
+                                img_alerta.innerHTML = '<img alt="icon" src="../img/attention.svg" />';
+                            }
                         }
-                        chart_temp.update();
-                        chart_umid.update();
                         console.log(temperatura)
 
                     });
@@ -200,7 +231,7 @@
                 yAxes: [{
                     ticks: {
                         min: 0,
-                        max: 40,
+                        max: 45,
                         callback: function (value) {
                             return value.toFixed(0) + "°C";
                         }
