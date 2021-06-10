@@ -46,7 +46,8 @@ router.get("/ano/:valores", function (req, res, next) {
   const limite_linhas = 1;
 
   var valores = req.params.valores;
-  console.log('Presta atencaooooooooo ',valores)
+
+  console.log('Presta atencaooooooooo ', valores)
   console.log(`Recuperando as ultimas ${limite_linhas} leituras`);
 
   let instrucaoSql = "";
@@ -57,7 +58,7 @@ router.get("/ano/:valores", function (req, res, next) {
     inner join sensor on fkSensor = idSensor where fkTerreno = ${valores[0]} limit ${limite_linhas} desc;`
   } else if (env == "production") {
     // abaixo, escreva o select de dados para o SQL Server
-    instrucaoSql = `SELECT avg(temperaturaSensor) as media from dadoSensor 
+    instrucaoSql = `SELECT avg(temperaturaSensor) as mediatemp, avg(umidadeSensor) as mediaumi from dadoSensor 
     inner join sensor on fkSensor = idSensor where fkTerreno ${valores};`
 
   } else {

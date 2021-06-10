@@ -49,7 +49,7 @@
     </div>
     <script src="../js/validacoes.js"></script>
     <script src="../js/dashboard.js"></script>
-    <script src="../js/sendData.js"></script>
+    <!-- <script src="../js/sendData.js"></script> -->
     <script src="../js/terrenos.js"></script>
 </body>
 
@@ -78,34 +78,37 @@
 
         console.log(ano)
         if (contador <= 9) {
-
             valores = ` = ${terreno} and momento >= '${ano}-0${contador}-01' and momento <= '${ano}-0${contador}-28'`
         }
         else {
             valores = ` = ${terreno} and momento >= '${ano}-${contador}-01' and momento <= '${ano}-${contador}-28'`
         }
-        console.log("Olha os valores", valores)
+        console.log("Olha os valores", valores, 'valor looping', contador)
         //aguardar();
         fetch(`/dadosSensor/ano/${valores}`)
             .then(resposta => {
 
                 if (resposta.ok) {
-                    resposta.json().then(function (resposta) {
+                    resposta.json().then(function (json) {
 
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        console.log(`Dados recebidos: ${json[0].media}`);
                         console.log(temperatura.length)
-                        if (resposta.media != null) {
 
-                            temperatura.push(resposta.media)
-                            umidade.push(resposta.media)
+                        if (json[0].mediatemp != null) {
+                            temperatura.push(json[0].mediatemp)
                         } else {
-
                             temperatura.push(0)
+                        }
+                        
+                        if (json[0].mediaumi != null) {
+                            umidade.push(json[0].mediaumi)
+                        } else {
                             umidade.push(0)
                         }
+
                         div_umid.update()
                         div_temp.update()
-                        console.log("aqui a mediaaaaaaaa ", resposta, 'temp', temperatura)
+                        console.log("aqui a mediaaaaaaaa ",  temperatura)
 
                     });
                 } else {
@@ -200,7 +203,7 @@
                 // tamanho do texto
                 fontSize: 26,
                 // texto no titulo
-                text: "Temperatura 2020",
+                text: "Temperatura " + ano,
                 // onde? right? left? top?
                 position: 'top',
             },
