@@ -25,7 +25,7 @@ router.get("/sendData", (request, response) => {
 
 		instrucaoSql = `INSERT into dadoSensor (temperaturaSensor, umidadeSensor,fkSensor) values (${temperature + 2}, ${Humidity + 8},6),
 		(${temperature + 5}, ${Humidity + 5},5),
-		(${temperature + 1}, ${Humidity + 3},4),
+		(${temperature + 20}, ${Humidity + 3},4),
 		(${temperature}, ${Humidity + 1},3),
 		(${temperature + 4}, ${Humidity - 10},2),
 		(${temperature + 10}, ${Humidity - 60},1);`;
@@ -37,10 +37,10 @@ router.get("/sendData", (request, response) => {
 
 		instrucaoSql = `INSERT into dbo.dadoSensor (temperaturaSensor, umidadeSensor,fkSensor) values (${temperature + 2}, ${Humidity + 8},6),
 		(${temperature + 5}, ${Humidity + 5},5),
-		(${temperature + 1}, ${Humidity + 3},4),
+		(${temperature + 20}, ${Humidity + 3},4),
 		(${temperature}, ${Humidity + 1},3),
 		(${temperature + 4}, ${Humidity + 8},2),
-		(${temperature - 2}, ${Humidity - 10},1);`;
+		(${temperature + 10}, ${Humidity - 10},1);`;
 	}
 
 	sequelize.query(instrucaoSql, {

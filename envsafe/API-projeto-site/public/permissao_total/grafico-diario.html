@@ -21,12 +21,12 @@
             <p class="titulo" style="padding-top: 20px;"><span class="destaque"><b
                         class="nome_usuario_html"></b>,</span>&nbsp;<span id="span_nome_terreno"></span></p>
             <ul class="navbar">
-                <li><a href="grafico.html"><span class="destaque">Gráfico <span id="span_dia"></span></a></span></li>
+                <li><span class="destaque">Gráfico <span id="span_dia"></span></span></li>
             </ul>
         </div>
     </div>
 
-    <div id="chart_box" class="">
+    <div id="chart_box">
         <!-- grafico 1 -->
         <div class="div_temp">
             <canvas id="chart_temp"></canvas>
@@ -151,7 +151,7 @@
             title: {
                 display: true,
                 fontSize: 26,
-                text: "Umidade 2020",
+                text: "Umidade",
                 position: 'top',
             },
             axisY: {
@@ -208,7 +208,7 @@
                 // tamanho do texto
                 fontSize: 26,
                 // texto no titulo
-                text: "Temperatura 2020",
+                text: "Temperatura",
                 // onde? right? left? top?
                 position: 'top',
             },
@@ -231,7 +231,7 @@
                 yAxes: [{
                     ticks: {
                         min: 0,
-                        max: 45,
+                        max: 50,
                         callback: function (value) {
                             return value.toFixed(0) + "°C";
                         }

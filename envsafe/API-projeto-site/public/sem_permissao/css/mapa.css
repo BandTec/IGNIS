@@ -64,3 +64,52 @@ body {
 .username {
     margin-bottom: 30px;
 }
+
+
+.legenda {
+    width: 80%;
+    height: 30px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vermelho{
+    margin-left: 9vh;
+    width: 25px;
+    height: 25px;
+    background-color: red;
+    border-radius: 50px;
+    display: inline-block;
+
+}
+.amarelo{
+    width: 25px;
+    height: 25px;
+    background-color: yellow;
+    border-radius: 50px;
+    display: inline-block;
+}
+.azul{
+    width: 25px;
+    height: 25px;
+    background-color: rgba(0, 0, 255, 0.774) ;
+    border-radius: 50px;
+    display: inline-block;
+}
+.verde{
+    width: 25px;
+    height: 25px;
+    background-color: #96FA4C;
+    border-radius: 50px;
+    display: inline-block;
+}
+
+.texto{
+    padding-bottom: 12px;
+    margin-right: 10vh;
+    display: inline-block;
+    margin-top: 28px;
+    margin-left: 10px;
+}
