@@ -51,7 +51,7 @@ body {
 .main {
     float: right;
     width: 75%;
-    margin: 50px auto;
+    margin: 30px auto;
 }
 
 #mapid {
@@ -61,7 +61,7 @@ body {
 }
 
 .legenda {
-    width: 60%;
+    width: 80%;
     height: 30px;
     margin: 20px auto;
     display: flex;

@@ -1,100 +1,111 @@
 body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
 .header {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    font-size: 25px;
-    width: 25%;
-    height: 100%;
-    background-color: #45D5AA;
-    position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  font-size: 25px;
+  width: 25%;
+  height: 100%;
+  background-color: #45d5aa;
+  position: fixed;
 }
 
 .nav {
-    margin: 0;
-    list-style: none;
-    text-align: center;
-    padding: 0;
-    width: 100%;
+  margin: 0;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  width: 100%;
 }
 
 .username {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
 .nav li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  cursor: pointer;
 }
 
 a {
-    text-decoration: none;
-    color: #000000;
-    
+  text-decoration: none;
+  color: #000000;
 }
 
 .option:hover {
-    box-sizing: border-box;
-    background-color: #7DFFD8;
-    font-weight: bold;
-    border-left: 10px solid #066F4F;
+  box-sizing: border-box;
+  background-color: #7dffd8;
+  font-weight: bold;
+  border-left: 10px solid #066f4f;
 }
 
 .main {
-    float: right;
-    width: 65%;
+  float: right;
+  width: 65%;
 }
 
 .container {
-    margin:auto;
-    width: 750%;
-    top: 50%;
-    padding: 10px;
-    transform: translateY(10%);
-    flex-direction: row;
-    background-color: #F5F5F5;
-    border-radius: 80px;
-    height: 600px;
-    width: 800px;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.301);
-    
+  margin-right: 5%;
+  width: 65%;
+  top: 50%;
+  padding: 10px;
+  transform: translateY(10%);
+  flex-direction: row;
+  background-color: #ebebeb;
+  border-radius: 60px;
+  height: 620px;
+  width: 800px;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.301);
 }
 
 .fale_conosco {
-    margin-left: auto;
-    margin-right: auto;
-    width: 60%;
-    font-family: "Montserrat";
+  margin: auto;
+  width: 60%;
+  font-family: "Montserrat";
 }
-.fale_conosco select{ 
-    font-size: 20px;
-    width: 460px;
-    border-width: 0;
+
+.fale_conosco select {
+  font-size: 20px;
+  width: 460px;
+  border-width: 0;
 }
-.fale_conosco textarea{
-    border-width: 0;
-    font-size: 20px;
+.fale_conosco textarea {
+  border-width: 0;
+  font-size: 20px;
 }
-.fale_conosco input{
-    font-size: 20px;
-    border-width: 0;
+.fale_conosco input {
+  font-size: 20px;
+  border-width: 0;
 }
-.fale_conosco button{
-    font-family: "Montserrat";
-    font-size: 20px;
-    height: 47px;
-    width: 227px;
-    background-color: #45D5AA;
-    border-width: 0;
-    margin: 50px 10px 10px 125px;
+.fale_conosco button {
+  font-family: "Montserrat";
+  font-size: 20px;
+  height: 47px;
+  width: 227px;
+  background-color: #45d5aa;
+  border-width: 0;
+  margin: 50px 10px 10px 125px;
+}
+
+.chat {
+    display: block;
+    margin: 4% 30.5%;
+}
+
+.chat a {
+    color: #0d8662
+}
+
+.chat a:hover {
+    font-weight: bold;
 }

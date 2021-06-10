@@ -35,7 +35,7 @@
         <a href="grafico.html"><li class="option">Gráficos</li></a>
         <li class="option"><b>Mapa</b></li>
         <a href="graficos-anuais.html"
-          ><li class="option">Gráficos Anuais</li></a
+          ><li class="option">Histórico</li></a
         >
         <a href="fale-conosco.html"><li class="option">Fale Conosco</li></a>
         <li class="option" onclick="sair()">Sair</li>
@@ -43,7 +43,22 @@
     </div>
     <div class="main">
       <div class="contaier">
+  
         <div id="mapid"></div>
+        <div class="legenda">
+          <span class="vermelho"></span>  
+          <p class="texto">CRÍTICO</p> 
+  
+          <span class="amarelo"></span>   
+          <p class="texto">ALERTA</p>
+  
+          <span class="verde"></span> 
+          <p class="texto">ESTÁVEL</p> 
+  
+          <span class="azul"></span>      
+          <p class="texto">IDEAL</p> 
+  
+        </div>
       </div>
     </div>
     <script src="../js/validacoes.js"></script>

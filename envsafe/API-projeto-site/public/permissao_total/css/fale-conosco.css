@@ -53,18 +53,18 @@ body {
 }
 
 .container {
-    margin:auto;
-    width: 750%;
+    margin: auto;
+
+    width: 75%;
     top: 50%;
     padding: 10px;
     transform: translateY(10%);
     flex-direction: row;
     background-color: #F5F5F5;
-    border-radius: 80px;
-    height: 600px;
+    border-radius: 60px;
+    height: 620px;
     width: 800px;
     box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.301);
-    
 }
 
 .fale_conosco {
@@ -94,4 +94,19 @@ body {
     background-color: #45D5AA;
     border-width: 0;
     margin: 50px 10px 10px 125px;
+}
+
+.chat {
+    display: block;
+    margin: 4% 30.5%;
+}
+
+.chat a {
+    color: #0d8662;
+    text-decoration: none;
+
+}
+
+.chat a:hover {
+    font-weight: bold;
 }
