@@ -42,11 +42,6 @@ html::-webkit-scrollbar {
   cursor: pointer;
 }
 
-.username {
-  margin-bottom: 30px;
-}
-
-
 .option:hover {
   box-sizing: border-box;
   background-color: #7DFFD8;

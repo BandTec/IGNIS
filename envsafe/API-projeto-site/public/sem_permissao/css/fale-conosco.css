@@ -24,10 +24,6 @@ body {
   width: 100%;
 }
 
-.username {
-  margin-bottom: 30px;
-}
-
 .nav li {
   display: flex;
   justify-content: center;
