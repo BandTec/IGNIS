@@ -76,7 +76,7 @@ html::-webkit-scrollbar {
     border-radius: 5px;
     overflow: auto;
     width: 400px;
-    
+    cursor: pointer;
 }
 
 

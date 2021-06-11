@@ -27,32 +27,43 @@
     <div class="main">
       <div class="container">
         <!-- <form action="mailto:help@ignis-envsafe.on.spiceworks.com" class="fale_conosco"> -->
-          <form action="" method="POST" class="fale_conosco">
+          <form class="fale_conosco" id="enviaemail">
 
-          <br /> 
-          <select id="sel_opcao">
-            <option value="0" disabled selected>Selecione uma Categoria</option>
-            <option value="1">Marcar Reunião</option>
-            <option value="2">Assistência Técnica</option>
-            <option value="3">Suporte</option>
-          </select>
-          <h3>Assuntos</h3>
-          <textarea id="text_assunto" rows="1" cols="40"></textarea>
-
-          <h3>Anexo(Opcional)</h3>
-          <input type="file" id="ipt_anexo" style="margin: 0" />
-
-          <h3>Descrição</h3>
-          <textarea id="text_descricao" rows="7" cols="40"></textarea><br />
-          <button onclick="bt_chamado()">Abrir Chamado</button>
-        </form>
+            <br />
+            <select id="sel_opcao" name="sel_opcao">
+              <option value="0" disabled selected>Selecione uma Categoria</option>
+              <option value="Marcar Reunião">Marcar Reunião</option>
+              <option value="Assistência Técnica">Assistência Técnica</option>
+              <option value="Suporte">Suporte</option>
+            </select>
+            <h3>Assuntos</h3>
+            <textarea id="text_assunto" name="text_assunto" rows="1" cols="40"></textarea>
+    
+            <h3>Anexo(Opcional)</h3>
+            <input type="file" id="ipt_anexo" name="ipt_anexo" style="margin: 0" />
+    
+            <h3>Descrição</h3>
+            <textarea id="text_descricao" name="text_descricao" rows="7" cols="40"></textarea><br />
+            <button onclick="sendEmail()">Abrir Chamado</button>
+          </form>
           <span class="chat">Ou abra um chat em nosso <a href="https://ignis.atlassian.net/servicedesk/customer/portal/1">Help Desk</a></span>
+        </div>
       </div>
-    </div>
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/validacoes.js"></script>
-  </body>
-</html>
-<script>
-  verificarAutenticacao()
-</script>
+      <script src="../js/dashboard.js"></script>
+      <script src="../js/validacoes.js"></script>
+      <script>verificarAutenticacao()</script>
+      <script>
+        function sendEmail() {
+    
+          var formulario = new URLSearchParams(new FormData(enviaemail));
+          fetch(`/emails/${sessionStorage.login_usuario_meuapp}`, {
+            method: "POST",
+            body: formulario,
+          }).then(res => {
+            console.log(res.json)
+          })
+        }
+      </script>
+    </body>
+    
+    </html>
