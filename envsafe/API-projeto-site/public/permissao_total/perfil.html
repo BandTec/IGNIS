@@ -51,7 +51,7 @@
         <h2>
           Bem vindo, <span class="nome_usuario_html">Nome de Usuário</span>
         </h2>
-        <p>Tenha um bom dia!</p>
+        <p id="boasvindas">Tenha</p>
       </div>
     </div>
     <div class="container">
@@ -88,10 +88,19 @@
 
   verificarAutenticacao()
 
-  var data = sessionStorage.getItem("Dia")
-  var dia_semana;
+  let data = new Date();
+  let hora = data.getHours()
+  let dia_semana;
 
-  var data_final = new Date(data)
+
+  let data_final = new Date(data)
+  if (hora >= 4 && hora < 12) {
+    boasvindas.innerHTML = 'Tenha um bom dia!'
+  } else if (hora >= 12 && hora < 18) {
+    boasvindas.innerHTML = 'Tenha uma Boa tarde!'
+  } else {
+    boasvindas.innerHTML = 'Tenha uma boa noite!'
+  }
 
   switch (data_final.getDay()) {
     case 1:
